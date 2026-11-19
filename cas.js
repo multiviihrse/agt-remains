@@ -15,10 +15,7 @@ async function loadAbilityOptions(){
   if(Object.values(catalogs).some(list=>!list.length))throw new Error('Catálogos incompletos');
   for(const el of selects){const category=el.name.endsWith('_natureza')?'nature':el.name.endsWith('_efeito')?'type':'level';const previous=el.value;el.innerHTML=options(catalogs[category]);el.disabled=false;if(catalogs[category].includes(previous))el.value=previous;}
   restoreDraft();
- }catch(error){console.error('Falha ao carregar catálogos de habilidades:',error);selects.forEach(el=>{el.innerHTML='<option value="">Indisponível no momento</option>';});const submitButton=document.getElementById('casSubmit');
-if(submitButton){submitButton.disabled=false;submitButton.textContent='ENVIAR PARA AVALIAÇÃO';submitButton.title='Enviar ficha para análise da narração';}
-const honeypot=document.createElement('input');honeypot.type='text';honeypot.name='website';honeypot.autocomplete='off';honeypot.tabIndex=-1;honeypot.setAttribute('aria-hidden','true');honeypot.style.cssText='position:absolute;left:-9999px;opacity:0;pointer-events:none';form.append(honeypot);
-const feedback=document.getElementById('casFeedback');if(feedback)feedback.textContent='Não foi possível carregar as opções do grimório. Atualize a página para tentar novamente.';}
+ }catch(error){console.error('Falha ao carregar catálogos de habilidades:',error);selects.forEach(el=>{el.innerHTML='<option value="">Indisponível no momento</option>';});const feedback=document.getElementById('casFeedback');if(feedback)feedback.textContent='Não foi possível carregar as opções do grimório. Atualize a página para tentar novamente.';}
 }
 const options=values=>'<option value="">Selecione...</option>'+values.map(v=>`<option value="${v}">${v}</option>`).join('');
 for(let i=1;i<=5;i++){
