@@ -50,7 +50,7 @@
   function cardFor(p){
     const article=document.createElement('article');article.className='file-card';
     const abilities=Array.isArray(p.abilities)?p.abilities:[];
-    const portrait=typeof p.photo_url==='string'&&/^https:\/\//i.test(p.photo_url)?p.photo_url:'';
+    const portrait=typeof p.photo_url==='string'&&(/^(https:\/\/|assets\/)/i.test(p.photo_url))?p.photo_url:'';
     article.innerHTML=`
       <span aria-hidden="true" class="file-frame-side file-frame-side-right"></span><span aria-hidden="true" class="file-frame-side file-frame-side-left"></span>
       <span aria-hidden="true" class="file-corner file-corner-br"></span><span aria-hidden="true" class="file-corner file-corner-bl"></span><span aria-hidden="true" class="file-corner file-corner-tr"></span><span aria-hidden="true" class="file-corner file-corner-tl"></span>
@@ -67,7 +67,7 @@
       const approved=await response.json();
       if(!Array.isArray(approved))throw Error('Resposta inválida');
       const fragment=document.createDocumentFragment();
-      approved.forEach(p=>fragment.append(cardFor(p)));
+      approved.forEach(p=>fragment.append(cardFor(p)));const demoResponse=await fetch('https://tfzjpuqjvfpqqdpgpknb.supabase.co/rest/v1/agt_demo_characters?select=*&order=id.asc',{headers:{apikey:key},cache:'no-store'});if(demoResponse.ok){const demos=await demoResponse.json();if(Array.isArray(demos))demos.forEach(p=>fragment.append(cardFor(p)));}
       grid.replaceChildren(fragment);
       cards=Array.from(grid.children);
       cards.forEach(card=>window.agtObserveFileCard?.(card));
