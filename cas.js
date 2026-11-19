@@ -1,13 +1,26 @@
 (()=>{
 const form=document.getElementById('casForm');if(!form)return;
 const powers=document.getElementById('casPowers');
-const natures=['Arcana','Sombria','Luminosa','Feérica','Espiritual','Elemental','Ígnea','Aquática','Glacial','Aérea','Terrestre','Elétrica','Natural','Botânica','Sanguínea','Vital','Necromântica','Psíquica','Mental','Onírica','Astral','Cósmica','Temporal','Espacial','Rúnica','Alquímica','Divina','Infernal','Bestial','Ilusória','Sonora','Tecnológica','Ancestral','Outra'];
-const effects=['Dano','Proteção','Defesa','Cura','Mobilidade','Controle','Contenção','Suporte','Fortalecimento','Enfraquecimento','Ilusão','Ocultação','Investigação','Percepção','Comunicação','Invocação','Transformação','Manipulação','Transporte','Teleporte','Rastreamento','Purificação','Dissipação','Ritual','Utilidade'];
-const difficulties=['Iniciante','Básico','Intermediário','Avançado','Especialista'];
+const CATALOG_URL='https://tfzjpuqjvfpqqdpgpknb.supabase.co/rest/v1/ability_options?select=category,label,sort_order&active=eq.true&order=sort_order.asc';
+const CATALOG_KEY='sb_publishable_u1UUMXQ-5ZiiFTF0u0xWbg_mLqsus0C';
+const catalogs={nature:[],type:[],level:[]};
+async function loadAbilityOptions(){
+ const selects=[...powers.querySelectorAll('select')];
+ selects.forEach(el=>{el.disabled=true;el.innerHTML='<option value="">Carregando opções...</option>';});
+ try{
+  const response=await fetch(CATALOG_URL,{headers:{'apikey':CATALOG_KEY,'Accept':'application/json'}});
+  if(!response.ok)throw new Error('HTTP '+response.status);
+  const rows=await response.json();
+  for(const row of rows){if(Object.hasOwn(catalogs,row.category)&&typeof row.label==='string')catalogs[row.category].push(row.label);}
+  if(Object.values(catalogs).some(list=>!list.length))throw new Error('Catálogos incompletos');
+  for(const el of selects){const category=el.name.endsWith('_natureza')?'nature':el.name.endsWith('_efeito')?'type':'level';const previous=el.value;el.innerHTML=options(catalogs[category]);el.disabled=false;if(catalogs[category].includes(previous))el.value=previous;}
+  restoreDraft();
+ }catch(error){console.error('Falha ao carregar catálogos de habilidades:',error);selects.forEach(el=>{el.innerHTML='<option value="">Indisponível no momento</option>';});const feedback=document.getElementById('casFeedback');if(feedback)feedback.textContent='Não foi possível carregar as opções do grimório. Atualize a página para tentar novamente.';}
+}
 const options=values=>'<option value="">Selecione...</option>'+values.map(v=>`<option value="${v}">${v}</option>`).join('');
 for(let i=1;i<=5;i++){
  const el=document.createElement('div');el.className='cas-power';
- el.innerHTML=`<h4>HABILIDADE ${String(i).padStart(2,'0')}</h4><div class="cas-power-grid"><label>Nome<input name="habilidade_${i}_nome" maxlength="90" placeholder="Nome da habilidade"></label><label>Natureza<select name="habilidade_${i}_natureza">${options(natures)}</select></label><label>Dificuldade<select name="habilidade_${i}_dificuldade">${options(difficulties)}</select></label><label>Efeito<select name="habilidade_${i}_efeito">${options(effects)}</select></label><label>Descrição<textarea name="habilidade_${i}_descricao" rows="2" maxlength="350" placeholder="O que a habilidade faz e quais são seus limites?"></textarea></label></div>`;
+ el.innerHTML=`<h4>HABILIDADE ${String(i).padStart(2,'0')}</h4><div class="cas-power-grid"><label>Nome<input name="habilidade_${i}_nome" maxlength="90" placeholder="Nome da habilidade"></label><label>Natureza<select name="habilidade_${i}_natureza">${options([])}</select></label><label>Dificuldade<select name="habilidade_${i}_dificuldade">${options([])}</select></label><label>Efeito<select name="habilidade_${i}_efeito">${options([])}</select></label><label>Descrição<textarea name="habilidade_${i}_descricao" rows="2" maxlength="350" placeholder="O que a habilidade faz e quais são seus limites?"></textarea></label></div>`;
  powers.append(el);
 }
 const feedback=document.getElementById('casFeedback'), count=document.getElementById('casCount'),hist=document.getElementById('casHistoria'),previewNode=document.getElementById('casPreview');
@@ -60,6 +73,7 @@ window.addEventListener('resize',fitPreviewName);
 hist.addEventListener('input',()=>count.textContent=hist.value.length+' / 300');
 document.getElementById('casPreviewButton').addEventListener('click',()=>{const review=previewNode.closest('.cas-accordion');if(review)review.open=true;preview()});
 document.getElementById('casSave').addEventListener('click',()=>{try{localStorage.setItem('agt_cas_draft_v1',JSON.stringify(data()));feedback.textContent='Rascunho salvo neste navegador. Ele ainda não foi enviado ao narrador.'}catch{feedback.textContent='Não foi possível salvar neste navegador.'}preview()});
-try{const draft=JSON.parse(localStorage.getItem('agt_cas_draft_v1')||'null');if(draft&&typeof draft==='object'){for(const [key,value] of Object.entries(draft)){const el=form.elements.namedItem(key);if(el&&typeof value==='string')el.value=value;else if(key.endsWith('_tipo')&&typeof value==='string'){const old=form.elements.namedItem(key.replace('_tipo','_efeito'));if(old)old.value=value}}count.textContent=hist.value.length+' / 300';feedback.textContent='Rascunho local recuperado.'}}catch{}
+function restoreDraft(){try{const draft=JSON.parse(localStorage.getItem('agt_cas_draft_v1')||'null');if(draft&&typeof draft==='object'){for(const [key,value] of Object.entries(draft)){const el=form.elements.namedItem(key);if(el&&typeof value==='string')el.value=value;else if(key.endsWith('_tipo')&&typeof value==='string'){const old=form.elements.namedItem(key.replace('_tipo','_efeito'));if(old)old.value=value}}count.textContent=hist.value.length+' / 300';feedback.textContent='Rascunho local recuperado.'}}catch{}}
+loadAbilityOptions();
 preview();
 })();
