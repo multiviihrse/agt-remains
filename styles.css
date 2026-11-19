@@ -1196,3 +1196,7 @@ body:has(.page.active:not(#inicio)) .app::before {
 #personagem .cas-accordion-body .cas-powers{margin:14px 0 6px;}
 #personagem .cas-accordion-body .cas-hint{margin:0 0 10px;}
 #personagem .cas-accordion-summary:focus-visible{outline:1px solid #c9a07d;outline-offset:2px;}
+
+/* Fichário: não animar o posicionamento inicial nem a abertura da página. */
+#fichario .file-grid.file-masonry>.file-card{transition:none!important}
+#fichario .file-grid.file-masonry:not(.file-masonry-ready){visibility:hidden}
