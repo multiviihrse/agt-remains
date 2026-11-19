@@ -23,6 +23,9 @@ for(let i=1;i<=5;i++){
  el.innerHTML=`<h4>HABILIDADE ${String(i).padStart(2,'0')}</h4><div class="cas-power-grid"><label>Nome<input name="habilidade_${i}_nome" maxlength="90" placeholder="Nome da habilidade"></label><label>Natureza<select name="habilidade_${i}_natureza">${options([])}</select></label><label>Dificuldade<select name="habilidade_${i}_dificuldade">${options([])}</select></label><label>Efeito<select name="habilidade_${i}_efeito">${options([])}</select></label><label>Descrição<textarea name="habilidade_${i}_descricao" rows="2" maxlength="350" placeholder="O que a habilidade faz e quais são seus limites?"></textarea></label></div>`;
  powers.append(el);
 }
+const submitButton=document.getElementById('casSubmit');
+if(submitButton){submitButton.disabled=false;submitButton.textContent='ENVIAR PARA AVALIAÇÃO';submitButton.title='Enviar ficha para análise da narração';}
+const honeypot=document.createElement('input');honeypot.type='text';honeypot.name='website';honeypot.autocomplete='off';honeypot.tabIndex=-1;honeypot.setAttribute('aria-hidden','true');honeypot.style.cssText='position:absolute;left:-9999px;opacity:0;pointer-events:none';form.append(honeypot);
 const feedback=document.getElementById('casFeedback'), count=document.getElementById('casCount'),hist=document.getElementById('casHistoria'),previewNode=document.getElementById('casPreview');
 const escapeHtml=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const data=()=>Object.fromEntries(new FormData(form).entries());
