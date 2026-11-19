@@ -6,6 +6,9 @@
   let cards = Array.from(grid.querySelectorAll(':scope > .file-card'));
   if (!cards.length) return;
   let scheduled = false;
+  let ready = false;
+  let loaded = false;
+  let loading = null;
   function layout() {
     scheduled = false;
     const columns = window.matchMedia('(max-width:700px)').matches ? 1 : 2;
@@ -21,6 +24,7 @@
       heights[col] += card.offsetHeight + gap;
     });
     grid.style.height = `${Math.max(...heights, 0) - gap}px`;
+    if (!ready) { ready = true; grid.classList.add('file-masonry-ready'); }
   }
   function schedule() {
     if (scheduled) return;
@@ -60,22 +64,29 @@
       <details class="file-grimoire"><summary class="file-grimoire-title"><img alt="" aria-hidden="true" class="file-grimoire-ornament" src="assets/dice-ornaments/estrela.png"><span>Grimório</span><span>${String(abilities.length).padStart(2,'0')} HABILIDADES</span><span class="file-grimoire-chevron">⌄</span></summary><ol>${abilities.map((ability,i)=>'<li class="file-power"><div class="file-power-name"><span>'+String(i+1).padStart(2,'0')+'.</span><strong>'+esc(ability.title)+'</strong></div><div class="file-tags">'+tag(ability.nature)+tag(ability.difficulty)+tag(ability.effect)+'</div><p>'+esc(ability.description)+'</p></li>').join('')}</ol></details>`;
     return article;
   }
-  async function refreshApproved(){
-    try{
+  async function refreshApproved(force=false){
+    if (loading) return loading;
+    if (loaded && !force) { schedule(); return; }
+    loading = (async()=>{try{
       const response=await fetch(endpoint,{headers:{apikey:key},cache:'no-store'});
       if(!response.ok)throw Error('HTTP '+response.status);
       const approved=await response.json();
       if(!Array.isArray(approved))throw Error('Resposta inválida');
       const fragment=document.createDocumentFragment();
       approved.forEach(p=>fragment.append(cardFor(p)));const demoResponse=await fetch('https://tfzjpuqjvfpqqdpgpknb.supabase.co/rest/v1/agt_demo_characters?select=*&order=id.asc',{headers:{apikey:key},cache:'no-store'});if(demoResponse.ok){const demos=await demoResponse.json();if(Array.isArray(demos))demos.forEach(p=>fragment.append(cardFor(p)));}
+      grid.classList.remove('file-masonry-ready');
+      ready = false;
       grid.replaceChildren(fragment);
       cards=Array.from(grid.children);
+      loaded = true;
       cards.forEach(card=>window.agtObserveFileCard?.(card));
       if(!cards.length){grid.style.height='auto';grid.textContent='Nenhum personagem aprovado até o momento.';}
       else schedule();
     }catch(error){console.error('Fichário: não foi possível carregar personagens aprovados',error);}
+    finally{loading=null;}})();
+    return loading;
   }
   refreshApproved();
-  document.querySelectorAll('a[href$="#fichario"], a[href="#fichario"]').forEach(el=>el.addEventListener('click',refreshApproved));
-  window.addEventListener('pageshow',refreshApproved);
+  document.querySelectorAll('a[href$="#fichario"], a[href="#fichario"]').forEach(el=>el.addEventListener('click',()=>schedule()));
+  window.addEventListener('pageshow',()=>schedule());
 })();
