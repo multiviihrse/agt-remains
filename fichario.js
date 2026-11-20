@@ -33,19 +33,16 @@
   }
   grid.classList.add('file-masonry');
   grid.addEventListener('toggle', e => {
-    if (e.target.matches('details.file-grimoire')) schedule();
+    if (e.target.matches('details.file-grimoire')) requestAnimationFrame(schedule);
   }, true);
   if ('ResizeObserver' in window) {
     const observer = new ResizeObserver(schedule);
     observer.observe(grid);
-    cards.forEach(card => observer.observe(card));
-    window.agtObserveFileCard = card => observer.observe(card);
+    // Evita ciclos de ResizeObserver ao reposicionar fichas absolutas.
   } else {
     window.addEventListener('resize', schedule);
   }
-  document.querySelectorAll('[data-page], nav a, .sidebar a').forEach(el => {
-    el.addEventListener('click', () => setTimeout(schedule, 0));
-  });
+  window.addEventListener('hashchange',()=>{if(location.hash==='#fichario')schedule();});
   schedule();
   const endpoint='https://tfzjpuqjvfpqqdpgpknb.supabase.co/rest/v1/agt_public_fichario?select=*&order=reviewed_at.desc';
   const key='sb_publishable_u1UUMXQ-5ZiiFTF0u0xWbg_mLqsus0C';
@@ -62,7 +59,7 @@
       <img alt="" aria-hidden="true" class="file-card-rune" src="assets/runas/fichario.svg">
       <div class="file-identity"><div class="file-portrait-frame">${portrait?'<img class="file-portrait-image" loading="lazy" alt="Retrato de '+esc(p.first_name)+'" src="'+esc(portrait)+'">':''}<img alt="" aria-hidden="true" class="file-portrait-ornament" src="assets/fichario/moldura-retrato.svg"></div>
       <div class="file-info"><h3 class="file-character-name"><a class="file-character-link" href="${esc(fichaLink(p))}">${esc([p.first_name,p.last_name].filter(Boolean).join(' '))}</a></h3><div class="file-tags"><span class="file-tag file-player-id">${esc(p.player_id||'JOGADOR')}</span>${tag(p.race)}${tag(p.age_text)}<span class="file-status" aria-label="Ativo" title="Ativo"><span class="file-status-dot is-active" aria-hidden="true"></span></span></div><p class="file-bio">${esc(p.biography)}</p></div></div>
-      <details class="file-grimoire"><summary class="file-grimoire-title"><img alt="" aria-hidden="true" class="file-grimoire-ornament" src="assets/dice-ornaments/estrela.png"><span>Habilidades</span><span class="file-ability-count">(${abilities.length})</span><span class="file-grimoire-chevron">⌄</span></summary><ol>${abilities.map((ability,i)=>'<li class="file-power"><div class="file-power-name"><span>'+String(i+1).padStart(2,'0')+'.</span><strong>'+esc(ability.title)+'</strong></div><div class="file-tags">'+tag(ability.nature)+tag(ability.difficulty)+tag(ability.effect)+'</div><p>'+esc(ability.description)+'</p></li>').join('')}</ol></details>`;
+      <details class="file-grimoire"><summary class="file-grimoire-title"><img alt="" aria-hidden="true" class="file-grimoire-ornament" src="assets/dice-ornaments/estrela.png"><span>HABILIDADES</span><span class="file-ability-count">(${abilities.length})</span><span class="file-grimoire-chevron">⌄</span></summary><ol>${abilities.map((ability,i)=>'<li class="file-power"><div class="file-power-name"><span>'+String(i+1).padStart(2,'0')+'.</span><strong>'+esc(ability.title)+'</strong></div><div class="file-tags">'+tag(ability.nature)+tag(ability.difficulty)+tag(ability.effect)+'</div><p>'+esc(ability.description)+'</p></li>').join('')}</ol></details>`;
     return article;
   }
   async function refreshApproved(force=false){
@@ -80,7 +77,7 @@
       grid.replaceChildren(fragment);
       cards=Array.from(grid.children);
       loaded = true;
-      cards.forEach(card=>window.agtObserveFileCard?.(card));
+      window.agtFitFileNames?.();
       if(!cards.length){grid.style.height='auto';grid.textContent='Nenhum personagem aprovado até o momento.';}
       else schedule();
     }catch(error){console.error('Fichário: não foi possível carregar personagens aprovados',error);}
