@@ -1200,3 +1200,21 @@ body:has(.page.active:not(#inicio)) .app::before {
 /* Fichário: não animar o posicionamento inicial nem a abertura da página. */
 #fichario .file-grid.file-masonry>.file-card{transition:none!important}
 #fichario .file-grid.file-masonry:not(.file-masonry-ready){visibility:hidden}
+
+
+/* CAS — mesma moldura e fundo das fichas do Fichário */
+#personagem .cas-intro,#personagem .cas-form{position:relative;background:var(--bg,#000);border:.5px solid #80614b;box-shadow:0 0 0 .5px #332720;isolation:isolate;padding:48px 24px 47px}
+#personagem .cas-intro{position:sticky;top:24px}
+#personagem .cas-intro::before,#personagem .cas-intro::after,#personagem .cas-form::before,#personagem .cas-form::after{content:"";position:absolute;left:75px;right:75px;height:.5px;background:#B99275;opacity:.72;pointer-events:none}
+#personagem .cas-intro::before,#personagem .cas-form::before{top:3px}
+#personagem .cas-intro::after,#personagem .cas-form::after{bottom:3px}
+#personagem .cas-frame-corner{position:absolute;display:block;width:72px;height:47px;background:url("assets/fichario/arabesco-canto.svg") center/100% 100% no-repeat;opacity:.82;pointer-events:none;z-index:0}
+#personagem .cas-frame-corner-tl{top:3px;left:3px}
+#personagem .cas-frame-corner-tr{top:3px;right:3px;transform:scaleX(-1)}
+#personagem .cas-frame-corner-bl{bottom:3px;left:3px;transform:scaleY(-1)}
+#personagem .cas-frame-corner-br{bottom:3px;right:3px;transform:scale(-1,-1)}
+#personagem .cas-frame-side{position:absolute;top:50px;bottom:50px;width:.5px;background:#B99275;opacity:.72;pointer-events:none;z-index:0}
+#personagem .cas-frame-side-left{left:3px}
+#personagem .cas-frame-side-right{right:3px}
+#personagem .cas-intro>p,#personagem .cas-form> :not(.cas-frame-corner):not(.cas-frame-side){position:relative;z-index:1}
+@media(max-width:520px){#personagem .cas-intro,#personagem .cas-form{padding:44px 18px 43px}}
