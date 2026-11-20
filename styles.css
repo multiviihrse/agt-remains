@@ -1415,3 +1415,7 @@ body:has(.page.active:not(#inicio)) .app::before {
 @media(max-width:1050px){#ficha .ficha-sheet-grid{grid-template-columns:210px minmax(0,1fr)}#ficha .ficha-main-columns{grid-template-columns:1fr}#ficha .ficha-other-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
 @media(max-width:650px){#ficha .ficha-content{padding:16px 12px!important}#ficha .ficha-sheet-grid{grid-template-columns:1fr}#ficha .ficha-sidebar{display:grid;grid-template-columns:1fr 1fr;align-items:start}#ficha .ficha-portrait-frame{grid-column:1/-1;width:min(65%,270px)}#ficha .ficha-hero{min-height:0}#ficha .ficha-other-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:400px){#ficha .ficha-sidebar{grid-template-columns:1fr}#ficha .ficha-other-grid{grid-template-columns:1fr}}
+
+/* Moldura usa o mesmo arabesco vetorial das fichas do Fichário */
+#ficha .ficha-corner{background-image:url("assets/fichario/arabesco-canto.svg")!important;opacity:.82}
+#ficha .ficha-content,#ficha .ficha-panel,#ficha .ficha-other-item{border-radius:0!important}
