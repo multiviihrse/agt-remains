@@ -46,7 +46,7 @@
   const detail=document.getElementById('ficha-content');
   let currentDetail=0;
   async function loadActions(name,container,token){
-    const normalized=name.trim().replace(/\\s+/g,' ');
+    const normalized=name.trim().split(/\s+/).join(' ');
     const all=[];let offset=0;
     try{
       while(true){
@@ -65,7 +65,7 @@
   }
   async function showFicha(){
     if(!detail)return;
-    const match=location.hash.match(/^#ficha\\/(aprovado|demo)\\/([^/?#]+)$/);
+    const match=new RegExp('^#ficha/(aprovado|demo)/([^/?#]+)$').exec(location.hash);
     if(!match){currentDetail++;return;}
     const token=++currentDetail;
     detail.textContent='Carregando ficha...';
