@@ -1233,5 +1233,5 @@ body:has(.page.active:not(#inicio)) .app::before {
 /* CAS — identidade compacta em tabela, linhas de até 30px */
 #personagem .cas-form .cas-identity-table{display:grid!important;grid-template-columns:minmax(0,1fr);gap:5px;width:100%;margin:0 0 8px}
 #personagem .cas-form .cas-identity-table>label{display:grid!important;grid-template-columns:minmax(0,1fr) minmax(0,3fr);align-items:center;gap:12px;height:30px;max-height:30px;box-sizing:border-box;border-bottom:0;margin:0;padding:0 3px;line-height:1}
-#personagem .cas-form .cas-identity-table>label>input{display:block;box-sizing:border-box;width:100%;min-width:0;height:30px;max-height:30px;min-height:30px;padding:2px 7px!important;font-size:11px;line-height:16px}
+#personagem .cas-form .cas-identity-table>label>input{display:block;box-sizing:border-box;width:100%;min-width:0;height:30px;max-height:30px;min-height:30px;padding:2px 7px!important;font-size:12px;line-height:18px}
 @media(max-width:520px){#personagem .cas-form .cas-identity-table>label{grid-template-columns:minmax(0,1fr) minmax(0,3fr);gap:7px}}
