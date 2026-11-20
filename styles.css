@@ -1242,3 +1242,8 @@ body:has(.page.active:not(#inicio)) .app::before {
 #personagem .cas-accordion{border-bottom:0;position:relative}
 #personagem .cas-accordion::after{content:"";position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent 0%,#B99275 50%,transparent 100%);pointer-events:none}
 #personagem .cas-accordion-summary .cas-section-heading{border:0;border-image:none}
+
+
+/* CAS — placeholders na paleta bronze do site */
+#personagem .cas-form input::placeholder,
+#personagem .cas-form textarea::placeholder{color:#B99275;opacity:1}
