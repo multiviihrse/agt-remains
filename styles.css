@@ -1203,9 +1203,9 @@ body:has(.page.active:not(#inicio)) .app::before {
 
 
 /* CAS — mesma moldura e fundo das fichas do Fichário */
-#personagem .cas-intro,#personagem .cas-form{position:relative;background:var(--bg,#000);border:.5px solid #80614b;box-shadow:0 0 0 .5px #332720;isolation:isolate;padding:48px 24px 47px}
+#personagem .cas-intro,#personagem .cas-form{position:relative;background:var(--bg,#000);border:1px solid #80614b;box-shadow:0 0 0 .5px #332720;isolation:isolate;padding:48px 24px 47px}
 #personagem .cas-intro{position:sticky;top:24px}
-#personagem .cas-intro::before,#personagem .cas-intro::after,#personagem .cas-form::before,#personagem .cas-form::after{content:"";position:absolute;left:81px;right:81px;height:.5px;background:#B99275;opacity:.72;pointer-events:none}
+#personagem .cas-intro::before,#personagem .cas-intro::after,#personagem .cas-form::before,#personagem .cas-form::after{content:"";position:absolute;left:81px;right:81px;height:1px;background:#B99275;opacity:.72;pointer-events:none}
 #personagem .cas-intro::before,#personagem .cas-form::before{top:4px}
 #personagem .cas-intro::after,#personagem .cas-form::after{bottom:4px}
 #personagem .cas-frame-corner{position:absolute;display:block;width:72px;height:47px;background:url("assets/fichario/arabesco-canto.svg") center/100% 100% no-repeat;opacity:.82;pointer-events:none;z-index:0}
@@ -1213,7 +1213,7 @@ body:has(.page.active:not(#inicio)) .app::before {
 #personagem .cas-frame-corner-tr{top:1px;right:1px;transform:scaleX(-1)}
 #personagem .cas-frame-corner-bl{bottom:1px;left:1px;transform:scaleY(-1)}
 #personagem .cas-frame-corner-br{bottom:1px;right:1px;transform:scale(-1,-1)}
-#personagem .cas-frame-side{position:absolute;top:56px;bottom:56px;width:.5px;background:#B99275;opacity:.72;pointer-events:none;z-index:0}
+#personagem .cas-frame-side{position:absolute;top:56px;bottom:56px;width:1px;background:#B99275;opacity:.72;pointer-events:none;z-index:0}
 #personagem .cas-frame-side-left{left:4px}
 #personagem .cas-frame-side-right{right:4px}
 #personagem .cas-intro>p,#personagem .cas-form> :not(.cas-frame-corner):not(.cas-frame-side){position:relative;z-index:1}
