@@ -79,10 +79,25 @@
       const name=[p.first_name,p.last_name].filter(Boolean).join(' ');
       const abilities=Array.isArray(p.abilities)?p.abilities:[];
       const portrait=typeof p.photo_url==='string'&&(p.photo_url.startsWith('https://')||p.photo_url.startsWith('assets/'))?p.photo_url:'';
-      const field=(title,value)=>'<section class="ficha-block"><h3>'+title+'</h3><p>'+esc(value||'Informação não disponível.')+'</p></section>';
-      detail.innerHTML='<header class="ficha-header"><div class="ficha-portrait-frame">'+(portrait?'<img class="ficha-portrait-image" src="'+esc(portrait)+'" alt="Retrato de '+esc(name)+'">':'')+'<img class="ficha-portrait-ornament" src="assets/fichario/moldura-retrato.svg" alt="" aria-hidden="true"></div><div class="ficha-heading"><span class="eyebrow">REGISTRO INDIVIDUAL</span><h2>'+esc(name)+'</h2><div class="file-tags">'+tag(p.player_id||'JOGADOR')+tag(p.race)+tag(p.age_text)+'</div></div></header>'+
-        '<div class="ficha-narrative">'+field('Biografia',p.biography)+field('Aparência',p.appearance)+field('Relacionamentos',p.relationships)+'</div>'+
-        '<div class="ficha-columns"><section class="ficha-block ficha-abilities"><h3>GRIMÓRIO <span>('+abilities.length+')</span></h3>'+ (abilities.length?abilities.map((a,i)=>'<article class="ficha-ability"><h4>'+esc(a.title||'Habilidade '+(i+1))+'</h4><div class="file-tags">'+tag(a.nature)+tag(a.difficulty)+tag(a.effect)+'</div><p>'+esc(a.description)+'</p></article>').join(''):'<p>Nenhuma habilidade cadastrada.</p>')+'</section><section class="ficha-block ficha-actions"><h3>AÇÕES</h3><div class="ficha-actions-list">Carregando ações...</div></section></div>';
+      const safeField=(value)=>esc(value||'Não informado.');
+      const panel=(title,icon,body,extra='')=>'<section class="ficha-panel '+extra+'"><h3><span class="ficha-panel-icon">'+icon+'</span>'+title+'</h3>'+body+'</section>';
+      const attr=(label,value)=>'<div class="ficha-attribute"><span>'+label+'</span><strong>'+safeField(value)+'</strong></div>';
+      const relations=Array.isArray(p.relationships)?p.relationships.map(r=>'<div class="ficha-relation"><strong>'+esc(r.name||r.title||'Relação')+'</strong><p>'+esc(r.description||r.type||'')+'</p></div>').join(''):('<p>'+safeField(p.relationships)+'</p>');
+      const powerItems=abilities.length?abilities.map((a,i)=>'<article class="ficha-power"><span class="ficha-power-index">'+String(i+1).padStart(2,'0')+'.</span><div><h4>'+esc(a.title||'Habilidade '+(i+1))+'</h4><div class="file-tags">'+tag(a.nature)+tag(a.difficulty)+tag(a.effect)+'</div><p>'+esc(a.description)+'</p></div><span class="ficha-power-arrow">›</span></article>').join(''):'<p>Nenhuma habilidade cadastrada.</p>';
+      detail.innerHTML='<div class="ficha-decor-top" aria-hidden="true">☾ ◐ ● ◑ ☽</div><div class="ficha-sheet-grid">'+
+        '<aside class="ficha-sidebar"><div class="ficha-portrait-frame">'+(portrait?'<img class="ficha-portrait-image" src="'+esc(portrait)+'" alt="Retrato de '+esc(name)+'">':'')+'<img class="ficha-portrait-ornament" src="assets/fichario/moldura-retrato.svg" alt="" aria-hidden="true"></div>'+
+        panel('ATRIBUTOS','✦','<p class="ficha-muted">Atributos ainda não cadastrados para este personagem.</p>')+
+        panel('INFORMAÇÕES','✧',attr('Nome completo',name)+attr('Raça',p.race)+attr('Idade',p.age_text)+attr('ID do jogador',p.player_id)+attr('Condição',p.status||'Ativo'))+
+        panel('NOTAS PESSOAIS','✎','<p class="ficha-muted">Espaço reservado para notas pessoais.</p>')+'</aside>'+
+        '<main class="ficha-main"><header class="ficha-hero"><span class="eyebrow">REGISTRO INDIVIDUAL</span><h2>'+esc(name)+'</h2><div class="ficha-hero-tags file-tags">'+tag(p.player_id||'JOGADOR')+tag(p.race)+tag(p.age_text)+'<span class="ficha-active">● '+esc(p.status||'Ativo')+'</span></div></header>'+
+        '<div class="ficha-main-columns"><div class="ficha-story-column">'+
+        panel('BIOGRAFIA','▤','<p>'+safeField(p.biography)+'</p>')+
+        panel('APARÊNCIA','♙','<p>'+safeField(p.appearance)+'</p>')+
+        panel('RELACIONAMENTOS','♧',relations)+
+        panel('INVENTÁRIO','◇','<p class="ficha-muted">Nenhum item cadastrado.</p>')+'</div>'+
+        '<div class="ficha-action-column">'+panel('GRIMÓRIO <small>— '+String(abilities.length).padStart(2,'0')+' HABILIDADES</small>','▣',powerItems,'ficha-grimoire-panel')+
+        panel('AÇÕES E ROLAGENS','⚄','<div class="ficha-actions-list">Carregando ações...</div><a class="ficha-actions-link" href="#dados">VER ROLADOR DE DADOS →</a>')+'</div></div></main></div>'+
+        '<section class="ficha-panel ficha-other"><h3><span class="ficha-panel-icon">✧</span>OUTRAS INFORMAÇÕES</h3><div class="ficha-other-grid">'+['Especialização','Origem','Círculo / Ordem','Objetivos','Conflitos'].map((label,i)=>'<div class="ficha-other-item"><h4>'+label+'</h4><p>'+safeField([p.specialization,p.origin,p.circle,p.objectives,p.conflicts][i])+'</p></div>').join('')+'</div></section>';
       loadActions(name,detail.querySelector('.ficha-actions-list'),token);
     }catch(err){if(token===currentDetail)detail.textContent='Não foi possível carregar a ficha. Atualize a página para tentar novamente.';}
   }
