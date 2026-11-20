@@ -1218,3 +1218,13 @@ body:has(.page.active:not(#inicio)) .app::before {
 #personagem .cas-frame-side-right{right:4px}
 #personagem .cas-intro>p,#personagem .cas-form> :not(.cas-frame-corner):not(.cas-frame-side){position:relative;z-index:1}
 @media(max-width:520px){#personagem .cas-intro,#personagem .cas-form{padding:44px 18px 43px}}
+
+
+/* CAS: bordas com transparência nas extremidades e intensidade máxima no centro */
+#personagem .cas-intro::before,#personagem .cas-intro::after,#personagem .cas-form::before,#personagem .cas-form::after{background:linear-gradient(90deg,transparent 0%,#B99275 50%,transparent 100%);opacity:1}
+#personagem .cas-frame-side{background:linear-gradient(180deg,transparent 0%,#B99275 50%,transparent 100%);opacity:1}
+/* Identidade: uma linha por campo, legenda à esquerda e preenchimento à direita */
+#personagem .cas-form>.cas-accordion:first-of-type .cas-fields{display:grid;grid-template-columns:minmax(0,1fr);gap:12px}
+#personagem .cas-form>.cas-accordion:first-of-type .cas-fields>label{display:grid;grid-template-columns:minmax(125px,38%) minmax(0,1fr);align-items:center;column-gap:14px;row-gap:0;min-width:0}
+#personagem .cas-form>.cas-accordion:first-of-type .cas-fields>label>input{min-width:0}
+@media(max-width:520px){#personagem .cas-form>.cas-accordion:first-of-type .cas-fields>label{grid-template-columns:minmax(100px,40%) minmax(0,1fr);column-gap:9px}}
