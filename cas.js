@@ -73,7 +73,15 @@ function fitPreviewName(){
 }
 if(document.fonts?.ready)document.fonts.ready.then(fitPreviewName);
 window.addEventListener('resize',fitPreviewName);
-hist.addEventListener('input',()=>count.textContent=hist.value.length+' / 300');
+function updateCharacterCounts(){
+ count.textContent=hist.value.length+' / 300';
+ for(const [name,id,max] of [['aparencia','casAparenciaCount',200],['relacoes','casRelacoesCount',300]]){
+  const field=form.elements.namedItem(name),counter=document.getElementById(id);
+  if(field&&counter)counter.textContent=field.value.length+' / '+max;
+ }
+}
+for(const name of ['historia','aparencia','relacoes'])form.elements.namedItem(name)?.addEventListener('input',updateCharacterCounts);
+updateCharacterCounts();
 document.getElementById('casPreviewButton').addEventListener('click',()=>{const review=previewNode.closest('.cas-accordion');if(review)review.open=true;preview()});
 document.getElementById('casSave').addEventListener('click',()=>{try{localStorage.setItem('agt_cas_draft_v1',JSON.stringify(data()));feedback.textContent='Rascunho salvo neste navegador. Ele ainda não foi enviado ao narrador.'}catch{feedback.textContent='Não foi possível salvar neste navegador.'}preview()});
 if(submitButton)submitButton.addEventListener('click',async()=>{
@@ -90,7 +98,7 @@ if(submitButton)submitButton.addEventListener('click',async()=>{
  try{const response=await fetch('https://tfzjpuqjvfpqqdpgpknb.supabase.co/functions/v1/submit-character',{method:'POST',headers:{'Content-Type':'application/json','apikey':CATALOG_KEY},body:JSON.stringify(payload)});const result=await response.json();feedback.textContent=result.message||'Não foi possível enviar a ficha.';if(response.ok){submitButton.textContent='FICHA ENVIADA';localStorage.removeItem('agt_cas_draft_v1');return;}}catch(e){console.error('Erro ao enviar ficha',e);feedback.textContent='Falha de conexão. Tente novamente.';}
  submitButton.disabled=false;submitButton.textContent='ENVIAR PARA AVALIAÇÃO';
 });
-function restoreDraft(){try{const draft=JSON.parse(localStorage.getItem('agt_cas_draft_v1')||'null');if(draft&&typeof draft==='object'){for(const [key,value] of Object.entries(draft)){const el=form.elements.namedItem(key);if(el&&typeof value==='string')el.value=value;else if(key.endsWith('_tipo')&&typeof value==='string'){const old=form.elements.namedItem(key.replace('_tipo','_efeito'));if(old)old.value=value}}count.textContent=hist.value.length+' / 300';feedback.textContent='Rascunho local recuperado.'}}catch{}}
+function restoreDraft(){try{const draft=JSON.parse(localStorage.getItem('agt_cas_draft_v1')||'null');if(draft&&typeof draft==='object'){for(const [key,value] of Object.entries(draft)){const el=form.elements.namedItem(key);if(el&&typeof value==='string')el.value=value;else if(key.endsWith('_tipo')&&typeof value==='string'){const old=form.elements.namedItem(key.replace('_tipo','_efeito'));if(old)old.value=value}}updateCharacterCounts();feedback.textContent='Rascunho local recuperado.'}}catch{}}
 loadAbilityOptions();
 preview();
 })();
