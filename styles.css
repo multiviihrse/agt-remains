@@ -1337,3 +1337,6 @@ body:has(.page.active:not(#inicio)) .app::before {
 #ficha .ficha-block p{font-size:12px;line-height:1.7;white-space:pre-wrap}
 #ficha .ficha-ability{padding:12px 0;border-bottom:1px solid #4b3529}
 #ficha .ficha-ability h4{margin:0;color:#fff;font-size:14px}
+
+/* Fichário: título das habilidades em caixa alta, sem alterar as demais etiquetas */
+#fichario .file-grimoire-title>span:nth-child(2){text-transform:uppercase}
