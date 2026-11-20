@@ -1254,7 +1254,10 @@ body:has(.page.active:not(#inicio)) .app::before {
 #personagem .cas-power-summary{display:flex;align-items:center;justify-content:space-between;cursor:pointer;list-style:none;min-height:24px}
 #personagem .cas-power-summary::-webkit-details-marker{display:none}
 #personagem .cas-power-summary h4{margin:0}
-#personagem .cas-power-summary::after{content:"+";font:22px Georgia,serif;color:#b98d70;line-height:1}
-#personagem .cas-power[open]>.cas-power-summary::after{content:"−"}
+#personagem .cas-power-summary::after{content:"";display:block;width:18px;height:18px;flex:0 0 18px;background:url("assets/dice-ornaments/estrela.png") center/contain no-repeat;opacity:.85;transform:rotate(0deg);transition:transform .2s ease}
+#personagem .cas-power[open]>.cas-power-summary::after{transform:rotate(45deg)}
 #personagem .cas-power[open]>.cas-power-grid{margin-top:14px}
 #personagem .cas-power-summary:focus-visible{outline:1px solid #c9a07d;outline-offset:3px}
+
+/* CAS — contornos delicados das cinco habilidades */
+#personagem .cas-power{border:0!important;outline:0;box-shadow:inset 0 0 0 .5px rgba(185,146,117,.55)}
