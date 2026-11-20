@@ -1470,3 +1470,14 @@ body:has(.page.active:not(#inicio)) .app::before {
 #ficha .ficha-stat-life{background:#912b28}
 #ficha .ficha-stat-sanity{background:#b99275}
 @media(max-width:650px){#ficha .ficha-decor-top{top:-11px!important}}
+
+/* Ficha: borda externa restaurada e divisórias com transparência nas extremidades */
+#ficha .ficha-content{border:1px solid #80614b!important;box-shadow:none!important}
+#ficha .ficha-content::before,#ficha .ficha-content::after{background:linear-gradient(90deg,rgba(185,146,117,0) 0%,#B99275 50%,rgba(185,146,117,0) 100%)!important}
+#ficha .ficha-frame-side{background:linear-gradient(180deg,rgba(185,146,117,0) 0%,#B99275 50%,rgba(185,146,117,0) 100%)!important}
+#ficha .ficha-panel h3,#ficha .ficha-other-item h4,#ficha .ficha-attribute,#ficha .ficha-power,#ficha .ficha-relation,#ficha .ficha-action{border-image:none!important;border-bottom:0!important;position:relative}
+#ficha .ficha-panel h3::after,#ficha .ficha-other-item h4::after,#ficha .ficha-attribute:not(:last-child)::after,#ficha .ficha-power:not(:last-child)::after,#ficha .ficha-relation:not(:last-child)::after,#ficha .ficha-action:not(:last-child)::after{content:"";position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,#B99275 50%,transparent);pointer-events:none}
+#ficha .ficha-panel h3,#ficha .ficha-other-item h4{padding-bottom:11px}
+#ficha .ficha-main>.ficha-biography{margin:0 0 12px}
+#ficha .ficha-main>.ficha-panel:not(.ficha-biography){margin:0 0 12px}
+#ficha .ficha-main>.ficha-panel .ficha-stat-track{max-width:none}
