@@ -1340,3 +1340,28 @@ body:has(.page.active:not(#inicio)) .app::before {
 
 /* Fichário: título das habilidades em caixa alta, sem alterar as demais etiquetas */
 #fichario .file-grimoire-title>span:nth-child(2){text-transform:uppercase}
+
+/* Fichário: colunas nativas, sem cálculos de altura ou reposicionamento via JS */
+#fichario .file-grid,#fichario .file-grid.file-masonry{display:block!important;columns:2!important;column-gap:10px!important;height:auto!important;position:static!important;visibility:visible!important}
+#fichario .file-grid>.file-card,#fichario .file-grid.file-masonry>.file-card{display:inline-block!important;vertical-align:top!important;width:100%!important;position:relative!important;top:auto!important;left:auto!important;transform:none!important;margin:0 0 10px!important;break-inside:avoid!important;page-break-inside:avoid!important;transition:none!important}
+@media(max-width:700px){#fichario .file-grid,#fichario .file-grid.file-masonry{columns:1!important}}
+/* Ficha individual: retrato com a mesma moldura e informações em duas colunas */
+#ficha .ficha-content{padding:30px;min-height:160px}
+#ficha .ficha-header{display:grid;grid-template-columns:minmax(180px,250px) minmax(0,1fr);gap:32px;align-items:center}
+#ficha .ficha-portrait-frame{position:relative;width:100%;aspect-ratio:2/3;isolation:isolate}
+#ficha .ficha-portrait-image{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;clip-path:polygon(34.570% 6.250%,28.320% 8.464%,25.195% 9.961%,22.461% 11.589%,19.531% 13.607%,16.992% 15.755%,12.793% 20.508%,7.812% 20.768%,7.812% 95.247%,92.188% 95.247%,92.188% 20.703%,87.207% 20.638%,82.617% 15.625%,79.980% 13.411%,76.855% 11.263%,70.703% 8.138%,64.062% 5.924%,57.715% 4.688%,53.809% 4.297%,49.414% 4.297%,45.996% 4.362%,40.820% 4.883%)!important}
+#ficha .ficha-portrait-ornament{position:absolute;inset:0;width:100%;height:100%;object-fit:fill;pointer-events:none}
+#ficha .ficha-heading{min-width:0}
+#ficha .ficha-heading h2{font-family:'Beth Ellen',cursive;font-weight:400;font-size:clamp(25px,3vw,42px);line-height:1.5;margin:12px 0 18px}
+#ficha .ficha-heading .file-tags{display:flex;gap:8px;flex-wrap:wrap}
+#ficha .ficha-narrative{margin-top:26px}
+#ficha .ficha-block{margin-top:20px}
+#ficha .ficha-columns{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:28px;align-items:start;margin-top:18px}
+#ficha .ficha-columns>.ficha-block{min-width:0}
+#ficha .ficha-columns h3{display:flex;justify-content:space-between;gap:12px}
+#ficha .ficha-ability .file-tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}
+#ficha .ficha-action{padding:12px 0;border-bottom:1px solid #4b3529}
+#ficha .ficha-action time,#ficha .ficha-action-total{font-size:10px;color:#b99275}
+#ficha .ficha-action h4{font-size:13px;color:#fff;margin:6px 0}
+#ficha .ficha-action p{margin:0;font-size:11px}
+@media(max-width:700px){#ficha .ficha-header{grid-template-columns:minmax(110px,38%) minmax(0,1fr);gap:15px}#ficha .ficha-content{padding:16px}#ficha .ficha-columns{grid-template-columns:1fr}}
