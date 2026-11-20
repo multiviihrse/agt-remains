@@ -17,11 +17,13 @@
     if (!width) return;
     const colWidth = (width - gap * (columns - 1)) / columns;
     const heights = Array(columns).fill(0);
+    // Ler as alturas antes de escrever transforms evita reflows por cartão.
     cards.forEach(card => {
       const col = heights.indexOf(Math.min(...heights));
       card.style.width = `${colWidth}px`;
+      const height = card.offsetHeight;
       card.style.transform = `translate(${col * (colWidth + gap)}px, ${heights[col]}px)`;
-      heights[col] += card.offsetHeight + gap;
+      heights[col] += height + gap;
     });
     grid.style.height = `${Math.max(...heights, 0) - gap}px`;
     if (!ready) { ready = true; grid.classList.add('file-masonry-ready'); }
@@ -35,13 +37,13 @@
   grid.addEventListener('toggle', e => {
     if (e.target.matches('details.file-grimoire')) requestAnimationFrame(schedule);
   }, true);
-  if ('ResizeObserver' in window) {
-    const observer = new ResizeObserver(schedule);
-    observer.observe(grid);
-    // Evita ciclos de ResizeObserver ao reposicionar fichas absolutas.
-  } else {
-    window.addEventListener('resize', schedule);
-  }
+  // Não observar a altura do próprio grid: layout() altera essa altura e
+  // disparava novos recálculos em cascata, causando lentidão contínua.
+  window.addEventListener('resize',schedule,{passive:true});
+  if(document.fonts?.ready)document.fonts.ready.then(schedule);
+  grid.addEventListener('load',event=>{
+    if(event.target instanceof HTMLImageElement)schedule();
+  },true);
   window.addEventListener('hashchange',()=>{if(location.hash==='#fichario')schedule();});
   schedule();
   const endpoint='https://tfzjpuqjvfpqqdpgpknb.supabase.co/rest/v1/agt_public_fichario?select=*&order=reviewed_at.desc';
