@@ -1231,7 +1231,7 @@ body:has(.page.active:not(#inicio)) .app::before {
 
 
 /* CAS — identidade compacta em tabela, linhas de no máximo 24px */
-#personagem .cas-form .cas-identity-table{display:table!important;width:100%;border-collapse:collapse;margin:0 0 8px}
-#personagem .cas-form .cas-identity-table>label{display:grid!important;grid-template-columns:minmax(125px,38%) minmax(0,1fr);align-items:center;gap:12px;height:24px;max-height:24px;box-sizing:border-box;border-bottom:1px solid rgba(185,146,117,.28);margin:0;padding:0 3px;line-height:1}
+#personagem .cas-form .cas-identity-table{display:grid!important;grid-template-columns:minmax(0,1fr);gap:5px;width:100%;margin:0 0 8px}
+#personagem .cas-form .cas-identity-table>label{display:grid!important;grid-template-columns:minmax(125px,38%) minmax(0,1fr);align-items:center;gap:12px;height:30px;max-height:30px;box-sizing:border-box;border-bottom:1px solid rgba(185,146,117,.28);margin:0;padding:0 3px;line-height:1}
 #personagem .cas-form .cas-identity-table>label>input{display:block;box-sizing:border-box;width:100%;min-width:0;height:22px;max-height:22px;min-height:0;padding:2px 7px!important;font-size:11px;line-height:16px}
 @media(max-width:520px){#personagem .cas-form .cas-identity-table>label{grid-template-columns:minmax(100px,40%) minmax(0,1fr);gap:7px}}
