@@ -1444,3 +1444,29 @@ body:has(.page.active:not(#inicio)) .app::before {
 #ficha .ficha-power-body .file-tags{margin:0 0 8px}
 #ficha .ficha-power-body p{margin:0}
 @media(max-width:650px){#ficha .ficha-corner{width:61px!important;height:42px!important}#ficha .ficha-frame-side{top:45px!important;bottom:45px!important}#ficha .ficha-content::before,#ficha .ficha-content::after{left:64px!important;right:64px!important}}
+
+/* Ficha interna: moldura única, sem traços duplicados sobre os arabescos */
+#ficha .ficha-content{border:0!important;box-shadow:none!important}
+#ficha .ficha-content::before,#ficha .ficha-content::after{height:1px!important;border:0!important}
+#ficha .ficha-frame-side-left{left:3px!important}
+#ficha .ficha-frame-side-right{right:3px!important}
+#ficha .ficha-decor-top{position:absolute!important;z-index:6!important;top:-12px;left:50%;transform:translateX(-50%);height:22px!important;width:130px;margin:0!important;background:var(--bg,#000);display:flex!important;align-items:center;justify-content:center}
+#ficha .ficha-decor-top img{width:115px!important;height:18px!important;max-width:100%!important;object-fit:contain!important}
+#ficha .ficha-hero{padding-top:8px!important;padding-bottom:12px!important;min-height:0!important}
+#ficha .ficha-hero h2{font-family:var(--font-titulos)!important;font-size:clamp(28px,3vw,44px)!important;line-height:1.15!important;margin:0 0 9px!important;color:#f2d5b6!important}
+#ficha .ficha-hero-tags{gap:5px!important}
+#ficha .ficha-grimoire-panel{height:360px!important;max-height:360px!important;display:flex;flex-direction:column;overflow:hidden}
+#ficha .ficha-grimoire-panel>h3{flex:0 0 auto}
+#ficha .ficha-grimoire-scroll{flex:1;min-height:0;overflow-y:auto;overflow-x:hidden;scrollbar-width:none;-ms-overflow-style:none}
+#ficha .ficha-grimoire-scroll::-webkit-scrollbar{display:none;width:0;height:0}
+#ficha .ficha-power{display:block!important;padding:11px 0!important}
+#ficha .ficha-power-title{display:flex;align-items:baseline;gap:8px;color:#f3d7ba;font-family:var(--font-subtitulos);font-size:13px}
+#ficha .ficha-power-title strong{font-weight:500}
+#ficha .ficha-power-body{padding:6px 0 0 25px!important}
+#ficha .ficha-stat{display:flex;align-items:center;justify-content:space-between;gap:8px;margin:9px 0 5px;font-family:var(--font-subtitulos);font-size:12px;color:#e6b993}
+#ficha .ficha-stat strong{color:#f1dcc7;font-weight:500}
+#ficha .ficha-stat-track{height:7px;border:1px solid #80614b;background:#19110e;margin-bottom:12px}
+#ficha .ficha-stat-fill{display:block;height:100%;width:100%}
+#ficha .ficha-stat-life{background:#912b28}
+#ficha .ficha-stat-sanity{background:#b99275}
+@media(max-width:650px){#ficha .ficha-decor-top{top:-11px!important}}
