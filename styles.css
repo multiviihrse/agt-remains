@@ -1419,3 +1419,28 @@ body:has(.page.active:not(#inicio)) .app::before {
 /* Moldura usa o mesmo arabesco vetorial das fichas do Fichário */
 #ficha .ficha-corner{background-image:url("assets/fichario/arabesco-canto.svg")!important;opacity:.82}
 #ficha .ficha-content,#ficha .ficha-panel,#ficha .ficha-other-item{border-radius:0!important}
+
+/* Ficha interna: ajustes finais de escala, moldura e grimório */
+#ficha .ficha-panel h3{font-size:14px!important;line-height:20px!important;text-transform:uppercase!important}
+#ficha .ficha-panel h3 .ficha-panel-icon,#ficha img.ficha-panel-icon{width:16px!important;height:16px!important;min-width:16px!important;max-width:16px!important;min-height:16px!important;max-height:16px!important;flex:0 0 16px!important;object-fit:contain!important;display:inline-block!important}
+#ficha .ficha-content{border:1px solid #80614b!important;background:var(--bg,#000)!important;overflow:visible}
+#ficha .ficha-corner{display:block!important;position:absolute!important;width:72px!important;height:49px!important;background:url("assets/fichario/arabesco-canto.svg") center/100% 100% no-repeat!important;opacity:.82!important;pointer-events:none!important;z-index:5!important}
+#ficha .ficha-corner-tl{top:3px!important;left:3px!important;transform:none!important}
+#ficha .ficha-corner-tr{top:3px!important;right:3px!important;left:auto!important;transform:scaleX(-1)!important}
+#ficha .ficha-corner-bl{bottom:3px!important;left:3px!important;top:auto!important;transform:scaleY(-1)!important}
+#ficha .ficha-corner-br{bottom:3px!important;right:3px!important;top:auto!important;left:auto!important;transform:scale(-1,-1)!important}
+#ficha .ficha-frame-side{display:block!important;position:absolute!important;top:52px!important;bottom:52px!important;width:1px!important;background:linear-gradient(180deg,transparent,#B99275 50%,transparent)!important;z-index:4!important}
+#ficha .ficha-frame-side-left{left:3px!important}
+#ficha .ficha-frame-side-right{right:3px!important}
+#ficha .ficha-content::before,#ficha .ficha-content::after{left:75px!important;right:75px!important;background:linear-gradient(90deg,transparent,#B99275 50%,transparent)!important;z-index:4!important}
+#ficha .ficha-hero-tags .file-tag,#ficha .ficha-power .file-tag{display:inline-flex!important;align-items:center!important;border:0!important;border-radius:999px!important;background:#33241b!important;color:#dbb99c!important;font:10px/1.2 var(--font-texto)!important;padding:4px 8px!important;white-space:nowrap}
+#ficha .ficha-power{display:block!important;padding:0!important;border-bottom:1px solid #593727!important}
+#ficha .ficha-power>summary{display:flex;align-items:center;gap:8px;cursor:pointer;list-style:none;padding:12px 0;color:#f3d7ba;font-family:var(--font-subtitulos);font-size:13px}
+#ficha .ficha-power>summary::-webkit-details-marker{display:none}
+#ficha .ficha-power>summary strong{font-weight:500;flex:1}
+#ficha .ficha-power-chevron{width:12px!important;height:12px!important;object-fit:contain;transition:transform .2s ease}
+#ficha .ficha-power[open] .ficha-power-chevron{transform:rotate(90deg)}
+#ficha .ficha-power-body{padding:0 0 12px 27px}
+#ficha .ficha-power-body .file-tags{margin:0 0 8px}
+#ficha .ficha-power-body p{margin:0}
+@media(max-width:650px){#ficha .ficha-corner{width:61px!important;height:42px!important}#ficha .ficha-frame-side{top:45px!important;bottom:45px!important}#ficha .ficha-content::before,#ficha .ficha-content::after{left:64px!important;right:64px!important}}
