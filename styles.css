@@ -1299,3 +1299,13 @@ body:has(.page.active:not(#inicio)) .app::before {
 #dados .dice-icon-field{display:flex!important;flex-direction:column;gap:4px!important}
 #dados .dice-icon-field .sr-only{position:static!important;width:auto!important;height:auto!important;padding:0!important;margin:0!important;overflow:visible!important;clip:auto!important;white-space:normal!important;border:0!important;display:block!important;font-family:var(--font-subtitulos)!important;font-size:9px!important;font-weight:500!important;line-height:12px!important;letter-spacing:.08em!important;text-transform:uppercase;color:#b99275!important}
 #dados .dice-icon-field .dice-field-icon{top:auto!important;bottom:7px!important;transform:none!important}
+
+/* Histórico de rolagens: mesma paleta e superfície das caixas do site */
+#dados .dice-history{background:var(--bg,#000)!important;border:1px solid #80614b!important;box-shadow:0 0 0 .5px #332720!important;border-radius:0!important}
+#dados .dice-history-heading h3{color:#fff!important}
+#dados .dice-entry{background:transparent!important;color:#f0e5dc!important}
+#dados .dice-entry:first-child{background:rgba(185,146,117,.055)!important}
+#dados .dice-entry:not(:last-child)::after{background:linear-gradient(90deg,transparent,#80614b 50%,transparent)!important}
+#dados .dice-entry time{color:#b99275!important}
+#dados .dice-log{scrollbar-color:#80614b var(--bg,#000)!important}
+#dados .dice-storage-note[hidden]{display:none!important}
