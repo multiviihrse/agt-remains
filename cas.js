@@ -20,9 +20,18 @@ async function loadAbilityOptions(){
 const options=values=>'<option value="">Selecione...</option>'+values.map(v=>`<option value="${v}">${v}</option>`).join('');
 for(let i=1;i<=5;i++){
  const el=document.createElement('details');el.className='cas-power';
- el.innerHTML=`<summary class="cas-power-summary"><h4>HABILIDADE ${String(i).padStart(2,'0')}</h4></summary><div class="cas-power-grid"><label>Nome<input name="habilidade_${i}_nome" maxlength="90" placeholder="Nome da habilidade"></label><label>Natureza<select name="habilidade_${i}_natureza">${options([])}</select></label><label>Dificuldade<select name="habilidade_${i}_dificuldade">${options([])}</select></label><label>Efeito<select name="habilidade_${i}_efeito">${options([])}</select></label><label>Descrição<textarea name="habilidade_${i}_descricao" rows="2" maxlength="350" placeholder="O que a habilidade faz e quais são seus limites?"></textarea></label></div>`;
+ el.innerHTML=`<summary class="cas-power-summary"><h4 data-default-title="HABILIDADE ${String(i).padStart(2,'0')}">HABILIDADE ${String(i).padStart(2,'0')}</h4></summary><div class="cas-power-grid"><label>Nome<input name="habilidade_${i}_nome" maxlength="90" placeholder="Nome da habilidade"></label><label>Natureza<select name="habilidade_${i}_natureza">${options([])}</select></label><label>Dificuldade<select name="habilidade_${i}_dificuldade">${options([])}</select></label><label>Efeito<select name="habilidade_${i}_efeito">${options([])}</select></label><label>Descrição<textarea name="habilidade_${i}_descricao" rows="2" maxlength="350" placeholder="O que a habilidade faz e quais são seus limites?"></textarea></label></div>`;
  powers.append(el);
 }
+function updatePowerTitles(){
+ for(let i=1;i<=5;i++){
+  const input=powers.querySelector('[name="habilidade_'+i+'_nome"]');
+  const heading=input?.closest('.cas-power')?.querySelector('.cas-power-summary h4');
+  if(heading)heading.textContent=input.value.trim()||heading.dataset.defaultTitle;
+ }
+}
+powers.addEventListener('input',event=>{if(event.target.matches('input[name$="_nome"]'))updatePowerTitles()});
+updatePowerTitles();
 const submitButton=document.getElementById('casSubmit');
 if(submitButton){submitButton.disabled=false;submitButton.textContent='ENVIAR PARA AVALIAÇÃO';submitButton.title='Enviar ficha para análise da narração';}
 const honeypot=document.createElement('input');honeypot.type='text';honeypot.name='website';honeypot.autocomplete='off';honeypot.tabIndex=-1;honeypot.setAttribute('aria-hidden','true');honeypot.style.cssText='position:absolute;left:-9999px;opacity:0;pointer-events:none';form.append(honeypot);
@@ -98,7 +107,7 @@ if(submitButton)submitButton.addEventListener('click',async()=>{
  try{const response=await fetch('https://tfzjpuqjvfpqqdpgpknb.supabase.co/functions/v1/submit-character',{method:'POST',headers:{'Content-Type':'application/json','apikey':CATALOG_KEY},body:JSON.stringify(payload)});const result=await response.json();feedback.textContent=result.message||'Não foi possível enviar a ficha.';if(response.ok){submitButton.textContent='FICHA ENVIADA';localStorage.removeItem('agt_cas_draft_v1');return;}}catch(e){console.error('Erro ao enviar ficha',e);feedback.textContent='Falha de conexão. Tente novamente.';}
  submitButton.disabled=false;submitButton.textContent='ENVIAR PARA AVALIAÇÃO';
 });
-function restoreDraft(){try{const draft=JSON.parse(localStorage.getItem('agt_cas_draft_v1')||'null');if(draft&&typeof draft==='object'){for(const [key,value] of Object.entries(draft)){const el=form.elements.namedItem(key);if(el&&typeof value==='string')el.value=value;else if(key.endsWith('_tipo')&&typeof value==='string'){const old=form.elements.namedItem(key.replace('_tipo','_efeito'));if(old)old.value=value}}updateCharacterCounts();feedback.textContent='Rascunho local recuperado.'}}catch{}}
+function restoreDraft(){try{const draft=JSON.parse(localStorage.getItem('agt_cas_draft_v1')||'null');if(draft&&typeof draft==='object'){for(const [key,value] of Object.entries(draft)){const el=form.elements.namedItem(key);if(el&&typeof value==='string')el.value=value;else if(key.endsWith('_tipo')&&typeof value==='string'){const old=form.elements.namedItem(key.replace('_tipo','_efeito'));if(old)old.value=value}}updateCharacterCounts();updatePowerTitles();feedback.textContent='Rascunho local recuperado.'}}catch{}}
 loadAbilityOptions();
 preview();
 })();
