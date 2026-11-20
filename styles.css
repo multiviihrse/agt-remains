@@ -1294,3 +1294,8 @@ body:has(.page.active:not(#inicio)) .app::before {
 #dados .dice-icon-field .dice-field-icon img{display:block;width:17px;height:17px;object-fit:contain}
 #dados .dice-icon-field>input,#dados .dice-icon-field>select{padding-left:36px!important;width:100%}
 #dados .dice-icon-field .sr-only{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important}
+
+/* Rótulos discretos acima dos campos de rolagem, sem ícones nos títulos */
+#dados .dice-icon-field{display:flex!important;flex-direction:column;gap:4px!important}
+#dados .dice-icon-field .sr-only{position:static!important;width:auto!important;height:auto!important;padding:0!important;margin:0!important;overflow:visible!important;clip:auto!important;white-space:normal!important;border:0!important;display:block!important;font-family:var(--font-subtitulos)!important;font-size:9px!important;font-weight:500!important;line-height:12px!important;letter-spacing:.08em!important;text-transform:uppercase;color:#b99275!important}
+#dados .dice-icon-field .dice-field-icon{top:auto!important;bottom:7px!important;transform:none!important}
