@@ -4,6 +4,8 @@
   const grid = document.querySelector('#fichario .file-grid');
   if (!grid) return;
   // As colunas são gerenciadas pelo CSS, sem medições contínuas em JavaScript.
+  let loaded=false;
+  let loading=null;
   const endpoint='https://tfzjpuqjvfpqqdpgpknb.supabase.co/rest/v1/agt_public_fichario?select=*&order=reviewed_at.desc';
   const key='sb_publishable_u1UUMXQ-5ZiiFTF0u0xWbg_mLqsus0C';
   const esc = v => String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
