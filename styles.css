@@ -1287,3 +1287,10 @@ body:has(.page.active:not(#inicio)) .app::before {
 #dados .dice-grid input,#dados .dice-grid select,#dados .dice-test-fields input,#dados .dice-test-fields select{box-sizing:border-box;height:32px!important;min-height:32px!important;padding:4px 9px!important;font-size:12px!important;line-height:18px!important}
 #dados .dice-grid label{gap:5px!important}
 #dados .dice-history-limit{font-family:var(--font-subtitulos);font-size:10px;letter-spacing:.08em;color:#b99275}
+
+/* Dados: ícones dentro dos campos, títulos acessíveis e descrições discretas */
+#dados .dice-icon-field{position:relative;display:block!important;min-width:0}
+#dados .dice-icon-field .dice-field-icon{position:absolute;left:10px;top:50%;transform:translateY(-50%);display:flex;align-items:center;justify-content:center;width:17px;height:17px;pointer-events:none;z-index:2}
+#dados .dice-icon-field .dice-field-icon img{display:block;width:17px;height:17px;object-fit:contain}
+#dados .dice-icon-field>input,#dados .dice-icon-field>select{padding-left:36px!important;width:100%}
+#dados .dice-icon-field .sr-only{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important}
