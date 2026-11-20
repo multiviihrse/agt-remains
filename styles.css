@@ -1235,3 +1235,10 @@ body:has(.page.active:not(#inicio)) .app::before {
 #personagem .cas-form .cas-identity-table>label{display:grid!important;grid-template-columns:minmax(0,1fr) minmax(0,3fr);align-items:center;gap:12px;height:30px;max-height:30px;box-sizing:border-box;border-bottom:0;margin:0;padding:0 3px;line-height:1}
 #personagem .cas-form .cas-identity-table>label>input{display:block;box-sizing:border-box;width:100%;min-width:0;height:30px;max-height:30px;min-height:30px;padding:2px 7px!important;font-size:12px;line-height:18px}
 @media(max-width:520px){#personagem .cas-form .cas-identity-table>label{grid-template-columns:minmax(0,1fr) minmax(0,3fr);gap:7px}}
+
+
+/* CAS — ícones de seção e divisórias com opacidade 0 nas pontas e 100% no centro */
+#personagem .cas-section-heading .cas-section-icon{display:block;width:24px;height:24px;object-fit:contain;flex:0 0 24px}
+#personagem .cas-accordion{border-bottom:0;position:relative}
+#personagem .cas-accordion::after{content:"";position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent 0%,#B99275 50%,transparent 100%);pointer-events:none}
+#personagem .cas-accordion-summary .cas-section-heading{border:0;border-image:none}
