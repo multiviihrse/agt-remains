@@ -1247,3 +1247,14 @@ body:has(.page.active:not(#inicio)) .app::before {
 /* CAS — placeholders na paleta bronze do site */
 #personagem .cas-form input::placeholder,
 #personagem .cas-form textarea::placeholder{color:#B99275;opacity:1}
+
+
+/* CAS — tipografia uniforme nos campos e habilidades recolhíveis */
+#personagem .cas-form input:not([type="hidden"]),#personagem .cas-form textarea,#personagem .cas-form select{font-size:12px!important;line-height:18px}
+#personagem .cas-power-summary{display:flex;align-items:center;justify-content:space-between;cursor:pointer;list-style:none;min-height:24px}
+#personagem .cas-power-summary::-webkit-details-marker{display:none}
+#personagem .cas-power-summary h4{margin:0}
+#personagem .cas-power-summary::after{content:"+";font:22px Georgia,serif;color:#b98d70;line-height:1}
+#personagem .cas-power[open]>.cas-power-summary::after{content:"−"}
+#personagem .cas-power[open]>.cas-power-grid{margin-top:14px}
+#personagem .cas-power-summary:focus-visible{outline:1px solid #c9a07d;outline-offset:3px}
