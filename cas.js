@@ -19,8 +19,8 @@ async function loadAbilityOptions(){
 }
 const options=values=>'<option value="">Selecione...</option>'+values.map(v=>`<option value="${v}">${v}</option>`).join('');
 for(let i=1;i<=5;i++){
- const el=document.createElement('div');el.className='cas-power';
- el.innerHTML=`<h4>HABILIDADE ${String(i).padStart(2,'0')}</h4><div class="cas-power-grid"><label>Nome<input name="habilidade_${i}_nome" maxlength="90" placeholder="Nome da habilidade"></label><label>Natureza<select name="habilidade_${i}_natureza">${options([])}</select></label><label>Dificuldade<select name="habilidade_${i}_dificuldade">${options([])}</select></label><label>Efeito<select name="habilidade_${i}_efeito">${options([])}</select></label><label>Descrição<textarea name="habilidade_${i}_descricao" rows="2" maxlength="350" placeholder="O que a habilidade faz e quais são seus limites?"></textarea></label></div>`;
+ const el=document.createElement('details');el.className='cas-power';
+ el.innerHTML=`<summary class="cas-power-summary"><h4>HABILIDADE ${String(i).padStart(2,'0')}</h4></summary><div class="cas-power-grid"><label>Nome<input name="habilidade_${i}_nome" maxlength="90" placeholder="Nome da habilidade"></label><label>Natureza<select name="habilidade_${i}_natureza">${options([])}</select></label><label>Dificuldade<select name="habilidade_${i}_dificuldade">${options([])}</select></label><label>Efeito<select name="habilidade_${i}_efeito">${options([])}</select></label><label>Descrição<textarea name="habilidade_${i}_descricao" rows="2" maxlength="350" placeholder="O que a habilidade faz e quais são seus limites?"></textarea></label></div>`;
  powers.append(el);
 }
 const submitButton=document.getElementById('casSubmit');
