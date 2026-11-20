@@ -101,7 +101,7 @@
     try{const res=await fetch(url,{headers:{apikey:key},cache:'no-store'});if(!res.ok)throw Error('HTTP '+res.status);const data=await res.json();if(location.hash!=='#ficha/'+match[1]+'/'+match[2])return;const p=data[0];if(!p){detail.textContent='Personagem não encontrado.';return;}
       const name=[p.first_name,p.last_name].filter(Boolean).join(' ');
       const abilities=Array.isArray(p.abilities)?p.abilities:[];
-      const portrait=typeof p.photo_url==='string'&&/^(https:\\/\\/|assets\\/)/i.test(p.photo_url)?p.photo_url:'';
+      const portrait=typeof p.photo_url==='string'&&(p.photo_url.startsWith('https://')||p.photo_url.startsWith('assets/'))?p.photo_url:'';
       detail.innerHTML='<div class="ficha-header">'+(portrait?'<img class="ficha-portrait" src="'+esc(portrait)+'" alt="Retrato de '+esc(name)+'">':'')+'<div><span class="eyebrow">REGISTRO INDIVIDUAL</span><h2>'+esc(name)+'</h2><p>'+[p.player_id,p.race,p.age_text].filter(Boolean).map(esc).join(' · ')+'</p></div></div>'+
         [['História',p.biography],['Aparência',p.appearance],['Relações',p.relationships]].filter(x=>x[1]).map(x=>'<section class="ficha-block"><h3>'+x[0]+'</h3><p>'+esc(x[1])+'</p></section>').join('')+
         '<section class="ficha-block"><h3>Habilidades ('+abilities.length+')</h3>'+abilities.map((a,i)=>'<div class="ficha-ability"><h4>'+esc(a.title||'Habilidade '+(i+1))+'</h4><p>'+[a.nature,a.difficulty,a.effect].filter(Boolean).map(esc).join(' · ')+'</p><p>'+esc(a.description)+'</p></div>').join('')+'</section>';
