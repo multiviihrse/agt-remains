@@ -1209,10 +1209,10 @@ body:has(.page.active:not(#inicio)) .app::before {
 #personagem .cas-intro::before,#personagem .cas-form::before{top:4px}
 #personagem .cas-intro::after,#personagem .cas-form::after{bottom:4px}
 #personagem .cas-frame-corner{position:absolute;display:block;width:72px;height:47px;background:url("assets/fichario/arabesco-canto.svg") center/100% 100% no-repeat;opacity:.82;pointer-events:none;z-index:0}
-#personagem .cas-frame-corner-tl{top:4px;left:4px}
-#personagem .cas-frame-corner-tr{top:4px;right:4px;transform:scaleX(-1)}
-#personagem .cas-frame-corner-bl{bottom:4px;left:4px;transform:scaleY(-1)}
-#personagem .cas-frame-corner-br{bottom:4px;right:4px;transform:scale(-1,-1)}
+#personagem .cas-frame-corner-tl{top:1px;left:1px}
+#personagem .cas-frame-corner-tr{top:1px;right:1px;transform:scaleX(-1)}
+#personagem .cas-frame-corner-bl{bottom:1px;left:1px;transform:scaleY(-1)}
+#personagem .cas-frame-corner-br{bottom:1px;right:1px;transform:scale(-1,-1)}
 #personagem .cas-frame-side{position:absolute;top:56px;bottom:56px;width:.5px;background:#B99275;opacity:.72;pointer-events:none;z-index:0}
 #personagem .cas-frame-side-left{left:4px}
 #personagem .cas-frame-side-right{right:4px}
