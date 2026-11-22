@@ -1885,3 +1885,18 @@ body{font-family:var(--font-texto)!important;font-size:var(--text-body)!importan
  background:linear-gradient(90deg,rgba(100,42,43,0) 0%,rgba(100,42,43,.18) 45%,rgba(100,42,43,.30) 100%)!important;
  border-left:5px solid var(--bg)!important;
 }
+
+/* Linhas da caixa Informações: gradiente invertido, sem divisórias. */
+#ficha .ficha-information-panel .ficha-attribute{
+ background:linear-gradient(90deg,rgba(100,42,43,0) 0%,rgba(100,42,43,.18) 45%,rgba(100,42,43,.30) 100%)!important;
+ border:0!important;
+ border-bottom:0!important;
+ border-image:none!important;
+ padding:10px 12px!important;
+ margin-bottom:5px!important;
+}
+#ficha .ficha-information-panel .ficha-attribute::before,
+#ficha .ficha-information-panel .ficha-attribute::after{
+ content:none!important;
+ display:none!important;
+}
