@@ -1872,3 +1872,16 @@ body{font-family:var(--font-texto)!important;font-size:var(--text-body)!importan
 @media(max-width:700px){
  #ficha .ficha-grimoire-panel .ficha-power-nature-icon{flex-basis:44px!important}
 }
+
+/* Fundo circular exclusivo do ícone de natureza. */
+#ficha .ficha-grimoire-panel .ficha-power{background:transparent!important;gap:0!important}
+#ficha .ficha-grimoire-panel .ficha-power-nature-icon{
+ border-radius:50%!important;
+ background:rgba(100,42,43,.30)!important;
+ padding:12px!important;
+ margin-right:0!important;
+}
+#ficha .ficha-grimoire-panel .ficha-power-content{
+ background:linear-gradient(90deg,rgba(100,42,43,.30) 0%,rgba(100,42,43,.18) 55%,rgba(100,42,43,0) 100%)!important;
+ border-left:5px solid var(--bg)!important;
+}
