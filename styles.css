@@ -1672,3 +1672,28 @@ body{font-family:var(--font-texto)!important;font-size:var(--text-body)!importan
  #ficha .ficha-sheet-grid > .ficha-portrait-frame{width:min(100%,280px)!important;justify-self:center}
  #ficha .ficha-sheet-grid > .ficha-biography{height:auto!important;max-height:none!important}
 }
+
+/* Ficha: retrato à esquerda, biografia ao centro, atributos e informações à direita. */
+#ficha .ficha-sheet-grid{
+ grid-template-columns:minmax(170px,24%) minmax(0,1fr) minmax(230px,32%)!important;
+ grid-template-areas:"portrait biography attributes" "portrait biography information"!important;
+ align-items:start!important;
+ gap:14px!important;
+}
+#ficha .ficha-sheet-grid > .ficha-portrait-frame{grid-area:portrait!important;align-self:start!important}
+#ficha .ficha-sheet-grid > .ficha-biography{
+ grid-area:biography!important;height:100%!important;align-self:stretch!important;
+}
+#ficha .ficha-sheet-grid > .ficha-attributes-panel{grid-area:attributes!important}
+#ficha .ficha-sheet-grid > .ficha-information-panel{grid-area:information!important}
+#ficha .ficha-main-columns{display:grid!important;grid-template-columns:minmax(0,1fr) minmax(0,1.12fr)!important;gap:14px!important}
+@media(max-width:850px){
+ #ficha .ficha-sheet-grid{
+  grid-template-columns:minmax(150px,34%) minmax(0,1fr)!important;
+  grid-template-areas:"portrait biography" "attributes information"!important;
+ }
+}
+@media(max-width:700px){
+ #ficha .ficha-sheet-grid{grid-template-columns:minmax(0,1fr)!important;grid-template-areas:"portrait" "biography" "attributes" "information"!important}
+ #ficha .ficha-main-columns{grid-template-columns:minmax(0,1fr)!important}
+}
