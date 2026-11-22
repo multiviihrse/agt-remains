@@ -1941,3 +1941,27 @@ body{font-family:var(--font-texto)!important;font-size:var(--text-body)!importan
 #ficha .ficha-action-failure{color:#d99690!important}
 #ficha .ficha-action-tags{display:flex;flex-wrap:wrap;gap:5px}
 #ficha .ficha-action-tag{display:inline-flex;align-items:center;padding:3px 7px;border:1px solid rgba(185,146,117,.32);color:#b99275;font-size:10px;line-height:1.3}
+
+/* Ficha interna: caixa de ações com altura fixa e scroll interno invisível. */
+#ficha .ficha-story-column>.ficha-panel{
+ height:360px!important;
+ min-height:360px!important;
+ max-height:360px!important;
+ overflow:hidden!important;
+ display:flex!important;
+ flex-direction:column!important;
+}
+#ficha .ficha-story-column .ficha-actions-list{
+ flex:1 1 auto!important;
+ min-height:0!important;
+ max-height:none!important;
+ overflow-y:auto!important;
+ overflow-x:hidden!important;
+ scrollbar-width:none!important;
+ -ms-overflow-style:none!important;
+}
+#ficha .ficha-story-column .ficha-actions-list::-webkit-scrollbar{
+ width:0!important;
+ height:0!important;
+ display:none!important;
+}
