@@ -1900,3 +1900,12 @@ body{font-family:var(--font-texto)!important;font-size:var(--text-body)!importan
  content:none!important;
  display:none!important;
 }
+
+/* Rolador: lista de personagens com pesquisa integrada. */
+#dados .dice-character-combo{position:relative;flex:1;min-width:0}
+#dados .dice-character-combo #diceCharacter{width:100%}
+#dados .dice-character-options{position:absolute;z-index:60;top:calc(100% + 5px);left:0;right:0;max-height:235px;overflow-y:auto;background:#241916;border:1px solid rgba(185,146,117,.45);box-shadow:0 12px 25px rgba(0,0,0,.4);scrollbar-width:thin;scrollbar-color:#754038 #241916}
+#dados .dice-character-options[hidden]{display:none!important}
+#dados .dice-character-option{display:block;width:100%;padding:10px 12px;border:0;border-bottom:1px solid rgba(185,146,117,.12);background:transparent;color:#e8d4bf;text-align:left;font:inherit;font-size:12px;cursor:pointer}
+#dados .dice-character-option:hover,#dados .dice-character-option:focus-visible{background:rgba(100,42,43,.4);color:#fff;outline:none}
+#dados .dice-character-message{margin:0;padding:12px;color:#b69a88;font-size:12px}
