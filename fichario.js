@@ -24,6 +24,18 @@
       <details class="file-grimoire"><summary class="file-grimoire-title"><img alt="" aria-hidden="true" class="file-grimoire-ornament" src="assets/dice-ornaments/estrela.png"><span>HABILIDADES</span><span class="file-ability-count">(${abilities.length})</span><span class="file-grimoire-chevron">⌄</span></summary><ol>${abilities.map((ability,i)=>'<li class="file-power"><div class="file-power-name"><span>'+String(i+1).padStart(2,'0')+'.</span><strong>'+esc(ability.title)+'</strong></div><div class="file-tags">'+tag(ability.nature)+tag(ability.difficulty)+tag(ability.effect)+'</div><p>'+esc(ability.description)+'</p></li>').join('')}</ol></details>`;
     return article;
   }
+  /* Componente reutilizável AGT: cartão completo do Fichário.
+     Uso em qualquer página: container.append(window.AGTFicharioCard.create(personagem));
+     A estrutura e os assets permanecem centralizados em cardFor(). */
+  window.AGTFicharioCard = Object.freeze({
+    create: (personagem) => cardFor(personagem),
+    render: (container, personagem) => {
+      if (!(container instanceof Element)) throw new TypeError('Informe um elemento de destino.');
+      const card = cardFor(personagem);
+      container.append(card);
+      return card;
+    }
+  });
   async function refreshApproved(force=false){
     if (loading) return loading;
     if (loaded && !force) return;
