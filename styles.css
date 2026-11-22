@@ -1485,3 +1485,13 @@ body:has(.page.active:not(#inicio)) .app::before {
 /* Criação de personagem: corpo do formulário em 13px; títulos mantêm hierarquia própria. */
 #personagem .cas-form{font-size:13px!important}
 #personagem .cas-form input:not([type="hidden"]),#personagem .cas-form textarea,#personagem .cas-form select,#personagem .cas-form .cas-fields label,#personagem .cas-form .cas-powers label,#personagem .cas-form .cas-hint,#personagem .cas-form .cas-power p{font-size:13px!important}
+
+/* Tipografia global: textos de corpo em 13px; títulos, ícones e metadados mantêm escalas próprias. */
+:root{--font-size-body:13px}
+body{font-size:var(--font-size-body)!important}
+main p,main li,main td,main blockquote,main textarea,main input:not([type="checkbox"]):not([type="radio"]),main select,
+.page p,.page li,.page td,.page blockquote,.page textarea,.page input:not([type="checkbox"]):not([type="radio"]),.page select,
+.article p,.article li,.article td,.article blockquote,
+#ficha .ficha-panel p,#ficha .ficha-power-body p,#ficha .ficha-other-item p,
+#fichario .file-info .file-bio,#personagem .cas-intro p,
+#dados .dice-entry p,#dados .dice-latest p,#dados .dice-calculation{font-size:var(--font-size-body)!important}
