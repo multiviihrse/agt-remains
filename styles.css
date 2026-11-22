@@ -1892,7 +1892,7 @@ body{font-family:var(--font-texto)!important;font-size:var(--text-body)!importan
  border:0!important;
  border-bottom:0!important;
  border-image:none!important;
- padding:10px 12px!important;
+ padding:9px 12px!important;
  margin-bottom:5px!important;
 }
 #ficha .ficha-information-panel .ficha-attribute::before,
