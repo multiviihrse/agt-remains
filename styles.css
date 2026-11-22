@@ -1578,38 +1578,29 @@ body{font-family:var(--font-texto)!important;font-size:var(--text-body)!importan
  letter-spacing:1px!important;
 }
 
-/* Fichário: acrescenta 10px entre o nome manuscrito e a linha divisória. */
-#fichario .file-info .file-character-name{
- height:40px!important;
- max-height:40px!important;
- padding-bottom:20px!important;
-}
-
-/* Fichário: desloca a própria divisória 10px abaixo do nome (não apenas o padding). */
-#fichario .file-info .file-character-name::after{
- top:calc(100% + 10px)!important;
- bottom:auto!important;
-}
-#fichario .file-info .file-character-name{
- margin-bottom:31px!important;
-}
-
-/* Componente Fichário: 10px adicionais entre a divisória do nome e as tags abaixo. */
-#fichario .file-info .file-character-name{margin-bottom:31px!important}
-
-/* Fichário — espaçamento real no fluxo flex: linha no fim do nome e tags 10px abaixo. */
+/* Fichário — espaçamento estável: 20px de linha de nome + 10px até a divisória + 10px até as tags. */
 #fichario .file-info > .file-character-name{
  box-sizing:border-box!important;
- height:40px!important;
- min-height:40px!important;
- max-height:40px!important;
- padding:0 0 20px!important;
+ display:block!important;
+ height:30px!important;
+ min-height:30px!important;
+ max-height:30px!important;
+ flex:0 0 30px!important;
+ line-height:20px!important;
+ padding:0 0 10px!important;
  margin:0!important;
- flex:0 0 40px!important;
+ position:relative!important;
+ overflow:visible!important;
 }
 #fichario .file-info > .file-character-name::after{
+ content:""!important;
+ position:absolute!important;
  top:auto!important;
  bottom:0!important;
+ left:0!important;
+ right:0!important;
+ height:1px!important;
+ background:linear-gradient(90deg,transparent,#a37c5e 50%,transparent)!important;
 }
 #fichario .file-info > .file-tags{
  margin-top:10px!important;
