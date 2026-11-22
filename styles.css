@@ -1493,7 +1493,7 @@ body:has(.page.active:not(#inicio)) .app::before {
  --text-h2:22px;
  --text-h3:16px;
  --text-h4:14px;
- --text-body:13px;
+ --text-body:14px;
  --text-secondary:12px;
  --text-caption:10px;
  --font-size-body:var(--text-body);
@@ -1552,3 +1552,6 @@ body{font-family:var(--font-texto)!important;font-size:var(--text-body)!importan
  font-family:var(--font-titulos)!important;font-size:var(--text-h2)!important
 }
 /* A assinatura manuscrita Beth Ellen e os elementos ilustrativos são exceções intencionais. */
+
+/* Correção: o título do Fichário segue o padrão de cabeçalho de página, sem quebra indevida. */
+#fichario .section-head h2{display:block!important;width:100%!important;max-width:100%!important;white-space:nowrap!important;overflow-wrap:normal!important;word-break:normal!important;hyphens:none!important;font-family:var(--font-titulos)!important;font-size:var(--text-h1)!important;line-height:1.25!important}
