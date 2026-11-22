@@ -1831,3 +1831,21 @@ body{font-family:var(--font-texto)!important;font-size:var(--text-body)!importan
 #ficha .ficha-power-nature-icon{display:block;flex:0 0 54px;width:54px;height:54px;object-fit:contain;align-self:center}
 #ficha .ficha-power-content{flex:1;min-width:0}
 @media(max-width:700px){#ficha .ficha-power-nature-icon{flex-basis:44px;width:44px;height:44px}}
+
+/* Divisória vertical entre ícone de natureza e conteúdo da habilidade. */
+#ficha .ficha-grimoire-panel .ficha-power-nature-icon{
+ margin-right:9px!important;
+}
+#ficha .ficha-grimoire-panel .ficha-power-content{
+ position:relative!important;
+}
+#ficha .ficha-grimoire-panel .ficha-power-content::before{
+ content:""!important;
+ position:absolute!important;
+ left:-12px!important;
+ top:0!important;
+ bottom:0!important;
+ width:1px!important;
+ background:linear-gradient(to bottom,rgba(185,146,117,0) 0%,rgba(185,146,117,1) 50%,rgba(185,146,117,0) 100%)!important;
+ pointer-events:none!important;
+}
