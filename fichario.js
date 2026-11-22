@@ -107,9 +107,8 @@
         panel('INFORMAÇÕES','✧',attr('Raça',p.race)+attr('Idade',p.age_text)+attr('Aparência',p.appearance)+attr('Relacionamentos',Array.isArray(p.relationships)?p.relationships.map(x=>[x.name||x.title||'',x.description||x.type||''].filter(Boolean).join(' — ')).join('; '):p.relationships),'ficha-information-panel')+
         '</div>'+ 
         '<div class="ficha-main-columns"><div class="ficha-story-column">'+
-        panel('INVENTÁRIO','◇','<p class="ficha-muted">Nenhum item cadastrado.</p>')+'</div>'+ 
-        '<div class="ficha-action-column">'+panel('GRIMÓRIO <small>— '+String(abilities.length).padStart(2,'0')+' HABILIDADES</small>','▣','<div class="ficha-grimoire-scroll">'+powerItems+'</div>','ficha-grimoire-panel')+
-        panel('AÇÕES E ROLAGENS','⚄','<div class="ficha-actions-list">Carregando ações...</div><a class="ficha-actions-link" href="#dados">VER ROLADOR DE DADOS →</a>')+'</div></div>'+ 
+        panel('AÇÕES E ROLAGENS','⚄','<div class="ficha-actions-list">Carregando ações...</div><a class="ficha-actions-link" href="#dados">VER ROLADOR DE DADOS →</a>')+'</div>'+
+        '<div class="ficha-action-column">'+panel('GRIMÓRIO <small>— '+String(abilities.length).padStart(2,'0')+' HABILIDADES</small>','▣','<div class="ficha-grimoire-scroll">'+powerItems+'</div>','ficha-grimoire-panel')+'</div></div>'+ 
         '<section class="ficha-panel ficha-other"><h3><img class="ficha-panel-icon" src="assets/dice-ornaments/estrela.png" alt="" aria-hidden="true">OUTRAS INFORMAÇÕES</h3><div class="ficha-other-grid">'+['Especialização','Origem','Círculo / Ordem','Objetivos','Conflitos'].map((label,i)=>'<div class="ficha-other-item"><h4>'+label+'</h4><p>'+safeField([p.specialization,p.origin,p.circle,p.objectives,p.conflicts][i])+'</p></div>').join('')+'</div></section>';
       loadActions(name,detail.querySelector('.ficha-actions-list'),token);
     }catch(err){if(token===currentDetail)detail.textContent='Não foi possível carregar a ficha. Atualize a página para tentar novamente.';}
