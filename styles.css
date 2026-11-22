@@ -1638,3 +1638,7 @@ body{font-family:var(--font-texto)!important;font-size:var(--text-body)!importan
 }
 #ficha .ficha-content::before{top:0!important;bottom:auto!important}
 #ficha .ficha-content::after{bottom:0!important;top:auto!important}
+
+/* Ficha interna: luas 15px abaixo e respiro inferior para os arabescos. */
+#ficha .ficha-decor-top{top:4px!important}
+#ficha .ficha-content{padding-bottom:58px!important}
