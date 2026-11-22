@@ -1965,3 +1965,9 @@ body{font-family:var(--font-texto)!important;font-size:var(--text-body)!importan
  height:0!important;
  display:none!important;
 }
+
+/* Paginação progressiva do histórico da ficha. */
+#ficha .ficha-actions-more{display:block;width:100%;flex:0 0 auto;margin:8px 0 0;padding:9px 4px;border:0;border-top:1px solid rgba(185,146,117,.28);background:transparent;color:#b99275;font-family:var(--font-subtitulos,inherit);font-size:10px;letter-spacing:.08em;text-align:center;cursor:pointer}
+#ficha .ficha-actions-more:hover{color:#fff;background:rgba(100,42,43,.18)}
+#ficha .ficha-actions-more[hidden]{display:none!important}
+#ficha .ficha-actions-more:disabled{opacity:.6;cursor:wait}
