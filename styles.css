@@ -1614,7 +1614,7 @@ body{font-family:var(--font-texto)!important;font-size:var(--text-body)!importan
 #fichario .file-info > .file-character-name::after{content:none!important;display:none!important}
 #fichario .file-info > .file-name-divider{
  display:block!important;flex:0 0 1px!important;height:1px!important;width:100%!important;
- margin:30px 0 10px!important;padding:0!important;
+ margin:15px 0 15px!important;padding:0!important;
  background:linear-gradient(90deg,transparent,#a37c5e 50%,transparent);
 }
 #fichario .file-info > .file-tags{margin-top:0!important}
