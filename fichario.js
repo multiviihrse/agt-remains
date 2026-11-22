@@ -72,9 +72,11 @@
         const rolls=Array.isArray(r.rolls)?r.rolls:[];
         const successes=rolls.filter(n=>Number(n)+Number(r.modifier||0)>=Number(r.difficulty)).length;
         const passed=successes>0;
+        const sum=rolls.reduce((total,n)=>total+Number(n||0),0)+Number(r.modifier||0);
         const date=new Date(r.created_at).toLocaleDateString('pt-BR',{day:'2-digit',month:'2-digit',year:'2-digit'});
+        const time=new Date(r.created_at).toLocaleTimeString('pt-BR',{hour:'2-digit',minute:'2-digit'});
         const action=String(r.action_name||'uma ação').trim();
-        return '<article class="ficha-action"><p class="ficha-action-description">'+esc(r.character_name||name)+' tentou '+esc(action)+' e obteve <strong class="'+(passed?'ficha-action-success':'ficha-action-failure')+'">'+(passed?'sucesso':'falha')+'</strong>.</p><div class="ficha-action-tags"><span class="ficha-action-tag">'+esc(date)+'</span><span class="ficha-action-tag">'+esc(successes)+' '+(successes===1?'sucesso':'sucessos')+'</span></div></article>';
+        return '<article class="ficha-action"><p class="ficha-action-description">'+esc(r.character_name||name)+' tentou '+esc(action)+' e obteve <strong class="'+(passed?'ficha-action-success':'ficha-action-failure')+'">'+(passed?'sucesso':'falha')+'</strong>.</p><div class="ficha-action-tags"><span class="ficha-action-tag">'+esc(date)+'</span><span class="ficha-action-tag">'+esc(time)+'</span><span class="ficha-action-tag">Soma: '+esc(sum)+'</span></div></article>';
       }).join(''):'<p>Nenhuma ação registrada para este personagem.</p>';
     }catch(err){if(token===currentDetail)container.textContent='Não foi possível carregar as ações.';}
   }
