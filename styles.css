@@ -1721,3 +1721,29 @@ body{font-family:var(--font-texto)!important;font-size:var(--text-body)!importan
  #ficha .ficha-sheet-grid{grid-template-areas:"portrait" "hero" "biography" "attributes" "information"!important}
  #ficha .ficha-sheet-grid > .ficha-hero{text-align:center}
 }
+
+/* Ficha interna: atributos acima da biografia, informações em altura integral da foto. */
+#ficha .ficha-decor-top{display:none!important}
+#ficha .ficha-sheet-grid{
+ grid-template-columns:minmax(170px,24%) minmax(0,1fr) minmax(230px,32%)!important;
+ grid-template-areas:"portrait hero hero" "portrait attributes information" "portrait biography information"!important;
+ grid-template-rows:auto auto minmax(0,1fr)!important;
+ align-items:stretch!important;
+ gap:12px 14px!important;
+}
+#ficha .ficha-sheet-grid > .ficha-portrait-frame{grid-area:portrait!important;align-self:start!important}
+#ficha .ficha-sheet-grid > .ficha-attributes-panel{grid-area:attributes!important;align-self:start!important}
+#ficha .ficha-sheet-grid > .ficha-biography{grid-area:biography!important;height:100%!important;min-height:0!important;align-self:stretch!important}
+#ficha .ficha-sheet-grid > .ficha-information-panel{grid-area:information!important;height:100%!important;min-height:0!important;align-self:stretch!important;overflow-y:auto;scrollbar-width:none}
+#ficha .ficha-sheet-grid > .ficha-information-panel::-webkit-scrollbar{display:none}
+#ficha .ficha-sheet-grid > .ficha-hero{display:flex!important;align-items:flex-start!important;justify-content:space-between!important;gap:16px!important}
+#ficha .ficha-player-id{flex:0 0 auto;font-family:var(--font-subtitulos);font-size:10px;letter-spacing:.08em;color:#b99275;opacity:.7;border:1px solid rgba(185,146,117,.3);padding:4px 8px;white-space:nowrap}
+@media(max-width:850px){
+ #ficha .ficha-sheet-grid{grid-template-columns:minmax(150px,34%) minmax(0,1fr)!important;grid-template-areas:"portrait hero" "portrait attributes" "portrait biography" "information information"!important;grid-template-rows:auto auto auto auto!important}
+ #ficha .ficha-sheet-grid > .ficha-information-panel{height:auto!important}
+}
+@media(max-width:700px){
+ #ficha .ficha-sheet-grid{grid-template-columns:minmax(0,1fr)!important;grid-template-areas:"portrait" "hero" "attributes" "biography" "information"!important}
+ #ficha .ficha-sheet-grid > .ficha-biography{height:auto!important}
+ #ficha .ficha-sheet-grid > .ficha-hero{text-align:left!important}
+}
