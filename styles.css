@@ -1642,3 +1642,33 @@ body{font-family:var(--font-texto)!important;font-size:var(--text-body)!importan
 /* Ficha interna: luas 15px abaixo e respiro inferior para os arabescos. */
 #ficha .ficha-decor-top{top:4px!important}
 #ficha .ficha-content{padding-bottom:58px!important}
+
+/* Ficha interna: retrato e biografia na mesma linha; atributos e informações abaixo. */
+#ficha .ficha-content > .ficha-hero{margin-bottom:18px}
+#ficha .ficha-sheet-grid{
+ display:grid!important;
+ grid-template-columns:minmax(190px,26%) minmax(0,1fr)!important;
+ grid-template-areas:"portrait biography" "attributes information"!important;
+ column-gap:18px!important;row-gap:14px!important;
+ align-items:stretch!important;
+ margin-bottom:18px!important;
+}
+#ficha .ficha-sheet-grid > .ficha-portrait-frame{
+ grid-area:portrait!important;width:100%!important;max-width:none!important;
+ margin:0!important;aspect-ratio:2/3!important;
+}
+#ficha .ficha-sheet-grid > .ficha-biography{
+ grid-area:biography!important;margin:0!important;
+ min-height:0!important;height:100%!important;
+ overflow-y:auto;scrollbar-width:none;
+}
+#ficha .ficha-sheet-grid > .ficha-biography::-webkit-scrollbar{display:none}
+#ficha .ficha-sheet-grid > .ficha-attributes-panel{grid-area:attributes!important;margin:0!important;align-self:start}
+#ficha .ficha-sheet-grid > .ficha-information-panel{grid-area:information!important;margin:0!important;align-self:start}
+#ficha .ficha-information-panel .ficha-attribute{display:grid;grid-template-columns:minmax(110px,24%) minmax(0,1fr);gap:12px;align-items:start;padding:10px 0}
+#ficha .ficha-information-panel .ficha-attribute strong{white-space:pre-wrap;overflow-wrap:anywhere;text-align:left}
+@media(max-width:700px){
+ #ficha .ficha-sheet-grid{grid-template-columns:minmax(0,1fr)!important;grid-template-areas:"portrait" "biography" "attributes" "information"!important}
+ #ficha .ficha-sheet-grid > .ficha-portrait-frame{width:min(100%,280px)!important;justify-self:center}
+ #ficha .ficha-sheet-grid > .ficha-biography{height:auto!important;max-height:none!important}
+}
