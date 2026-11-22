@@ -68,10 +68,13 @@
         const rows=await response.json();if(token!==currentDetail)return;
         all.push(...rows);if(rows.length<1000)break;offset+=1000;
       }
-      container.innerHTML=all.length?'<p class="ficha-action-total">'+all.length+' registro(s)</p>'+all.map(r=>{
-        const total=(Array.isArray(r.rolls)?r.rolls.reduce((sum,n)=>sum+Number(n),0):0)+Number(r.modifier||0);
-        const date=new Date(r.created_at).toLocaleString('pt-BR');
-        return '<article class="ficha-action"><time>'+esc(date)+'</time><h4>'+esc(r.action_name)+'</h4><p>'+esc(r.dice_count)+'d'+esc(r.dice_sides)+' · '+esc((r.rolls||[]).join(' + '))+(r.modifier?' + '+esc(r.modifier):'')+' = <strong>'+esc(total)+'</strong> · DIF '+esc(r.difficulty)+'</p></article>';
+      container.innerHTML=all.length?all.map(r=>{
+        const rolls=Array.isArray(r.rolls)?r.rolls:[];
+        const successes=rolls.filter(n=>Number(n)+Number(r.modifier||0)>=Number(r.difficulty)).length;
+        const passed=successes>0;
+        const date=new Date(r.created_at).toLocaleDateString('pt-BR',{day:'2-digit',month:'2-digit',year:'2-digit'});
+        const action=String(r.action_name||'uma ação').trim();
+        return '<article class="ficha-action"><p class="ficha-action-description">'+esc(r.character_name||name)+' tentou '+esc(action)+' e obteve <strong class="'+(passed?'ficha-action-success':'ficha-action-failure')+'">'+(passed?'sucesso':'falha')+'</strong>.</p><div class="ficha-action-tags"><span class="ficha-action-tag">'+esc(date)+'</span><span class="ficha-action-tag">'+esc(successes)+' '+(successes===1?'sucesso':'sucessos')+'</span></div></article>';
       }).join(''):'<p>Nenhuma ação registrada para este personagem.</p>';
     }catch(err){if(token===currentDetail)container.textContent='Não foi possível carregar as ações.';}
   }
