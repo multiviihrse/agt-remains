@@ -1618,3 +1618,23 @@ body{font-family:var(--font-texto)!important;font-size:var(--text-body)!importan
  background:linear-gradient(90deg,transparent,#a37c5e 50%,transparent);
 }
 #fichario .file-info > .file-tags{margin-top:0!important}
+
+/* Ficha interna: bordas horizontais em toda a largura, com 80% central opaco. */
+#ficha .ficha-content::before,
+#ficha .ficha-content::after{
+ box-sizing:border-box!important;
+ left:0!important;
+ right:0!important;
+ width:100%!important;
+ height:1px!important;
+ border:0!important;
+ opacity:1!important;
+ background:linear-gradient(90deg,
+   rgba(185,146,117,0) 0%,
+   #B99275 10%,
+   #B99275 90%,
+   rgba(185,146,117,0) 100%)!important;
+ pointer-events:none!important;
+}
+#ficha .ficha-content::before{top:0!important;bottom:auto!important}
+#ficha .ficha-content::after{bottom:0!important;top:auto!important}
