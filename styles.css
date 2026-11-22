@@ -1596,3 +1596,21 @@ body{font-family:var(--font-texto)!important;font-size:var(--text-body)!importan
 
 /* Componente Fichário: 10px adicionais entre a divisória do nome e as tags abaixo. */
 #fichario .file-info .file-character-name{margin-bottom:31px!important}
+
+/* Fichário — espaçamento real no fluxo flex: linha no fim do nome e tags 10px abaixo. */
+#fichario .file-info > .file-character-name{
+ box-sizing:border-box!important;
+ height:40px!important;
+ min-height:40px!important;
+ max-height:40px!important;
+ padding:0 0 20px!important;
+ margin:0!important;
+ flex:0 0 40px!important;
+}
+#fichario .file-info > .file-character-name::after{
+ top:auto!important;
+ bottom:0!important;
+}
+#fichario .file-info > .file-tags{
+ margin-top:10px!important;
+}
