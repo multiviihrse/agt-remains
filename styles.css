@@ -1825,3 +1825,9 @@ body{font-family:var(--font-texto)!important;font-size:var(--text-body)!importan
 #ficha .ficha-grimoire-panel .ficha-power::after,
 #ficha .ficha-grimoire-panel .ficha-power::before{content:none!important;display:none!important}
 #ficha .ficha-grimoire-panel .ficha-power-body{padding:6px 0 0 25px!important}
+
+/* Ficha interna: ícone da natureza à esquerda de cada habilidade. */
+#ficha .ficha-grimoire-panel .ficha-power{display:flex!important;align-items:center!important;gap:13px!important}
+#ficha .ficha-power-nature-icon{display:block;flex:0 0 54px;width:54px;height:54px;object-fit:contain;align-self:center}
+#ficha .ficha-power-content{flex:1;min-width:0}
+@media(max-width:700px){#ficha .ficha-power-nature-icon{flex-basis:44px;width:44px;height:44px}}
