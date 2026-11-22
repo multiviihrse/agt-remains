@@ -1909,3 +1909,21 @@ body{font-family:var(--font-texto)!important;font-size:var(--text-body)!importan
 #dados .dice-character-option{display:block;width:100%;padding:10px 12px;border:0;border-bottom:1px solid rgba(185,146,117,.12);background:transparent;color:#e8d4bf;text-align:left;font:inherit;font-size:12px;cursor:pointer}
 #dados .dice-character-option:hover,#dados .dice-character-option:focus-visible{background:rgba(100,42,43,.4);color:#fff;outline:none}
 #dados .dice-character-message{margin:0;padding:12px;color:#b69a88;font-size:12px}
+
+/* Correção do seletor de personagem: alinhamento do ícone e menu acima dos campos seguintes. */
+#dados .dice-icon-field:has(.dice-character-combo){z-index:20!important}
+#dados .dice-character-combo{display:block!important;position:relative!important;width:100%!important}
+#dados .dice-character-combo #diceCharacter{
+ box-sizing:border-box!important;
+ display:block!important;
+ width:100%!important;
+ padding-left:36px!important;
+}
+#dados .dice-icon-field:has(.dice-character-combo)>.dice-field-icon{
+ top:auto!important;
+ bottom:7px!important;
+ left:10px!important;
+ transform:none!important;
+}
+#dados .dice-character-options{z-index:100!important;box-sizing:border-box!important}
+#dados .dice-character-option{box-sizing:border-box!important;min-height:32px!important}
