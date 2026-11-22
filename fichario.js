@@ -108,7 +108,7 @@
         '</div>'+ 
         '<div class="ficha-main-columns"><div class="ficha-story-column">'+
         panel('AÇÕES E ROLAGENS','⚄','<div class="ficha-actions-list">Carregando ações...</div><a class="ficha-actions-link" href="#dados">VER ROLADOR DE DADOS →</a>')+'</div>'+
-        '<div class="ficha-action-column">'+panel('GRIMÓRIO <small>— '+String(abilities.length).padStart(2,'0')+' HABILIDADES</small>','▣','<div class="ficha-grimoire-scroll">'+powerItems+'</div>','ficha-grimoire-panel')+'</div></div>'+ 
+        '<div class="ficha-action-column">'+panel('HABILIDADES','▣','<div class="ficha-grimoire-scroll">'+powerItems+'</div>','ficha-grimoire-panel')+'</div></div>'+ 
         '';
       loadActions(name,detail.querySelector('.ficha-actions-list'),token);
     }catch(err){if(token===currentDetail)detail.textContent='Não foi possível carregar a ficha. Atualize a página para tentar novamente.';}
