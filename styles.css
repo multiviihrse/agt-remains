@@ -1481,3 +1481,7 @@ body:has(.page.active:not(#inicio)) .app::before {
 #ficha .ficha-main>.ficha-biography{margin:0 0 12px}
 #ficha .ficha-main>.ficha-panel:not(.ficha-biography){margin:0 0 12px}
 #ficha .ficha-main>.ficha-panel .ficha-stat-track{max-width:none}
+
+/* Criação de personagem: corpo do formulário em 13px; títulos mantêm hierarquia própria. */
+#personagem .cas-form{font-size:13px!important}
+#personagem .cas-form input:not([type="hidden"]),#personagem .cas-form textarea,#personagem .cas-form select,#personagem .cas-form .cas-fields label,#personagem .cas-form .cas-powers label,#personagem .cas-form .cas-hint,#personagem .cas-form .cas-power p{font-size:13px!important}
