@@ -1578,16 +1578,16 @@ body{font-family:var(--font-texto)!important;font-size:var(--text-body)!importan
  letter-spacing:1px!important;
 }
 
-/* Fichário — espaçamento estável: 20px de linha de nome + 10px até a divisória + 10px até as tags. */
+/* Fichário — 20px de linha de nome + 30px até a divisória + 10px até as tags. */
 #fichario .file-info > .file-character-name{
  box-sizing:border-box!important;
  display:block!important;
- height:30px!important;
- min-height:30px!important;
- max-height:30px!important;
- flex:0 0 30px!important;
+ height:50px!important;
+ min-height:50px!important;
+ max-height:50px!important;
+ flex:0 0 50px!important;
  line-height:20px!important;
- padding:0 0 10px!important;
+ padding:0 0 30px!important;
  margin:0!important;
  position:relative!important;
  overflow:visible!important;
