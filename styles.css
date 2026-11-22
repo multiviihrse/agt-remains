@@ -1584,3 +1584,12 @@ body{font-family:var(--font-texto)!important;font-size:var(--text-body)!importan
  max-height:40px!important;
  padding-bottom:20px!important;
 }
+
+/* Fichário: desloca a própria divisória 10px abaixo do nome (não apenas o padding). */
+#fichario .file-info .file-character-name::after{
+ top:calc(100% + 10px)!important;
+ bottom:auto!important;
+}
+#fichario .file-info .file-character-name{
+ margin-bottom:21px!important;
+}
