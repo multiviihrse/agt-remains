@@ -1489,6 +1489,7 @@ body:has(.page.active:not(#inicio)) .app::before {
 /* AGT TYPOGRAPHY SYSTEM — fonte única de referência para todas as páginas.
    Alterar os tokens abaixo atualiza os níveis tipográficos do site inteiro. */
 :root{
+ --text-page-title:81px;
  --text-h1:32px;
  --text-h2:22px;
  --text-h3:16px;
@@ -1501,7 +1502,7 @@ body:has(.page.active:not(#inicio)) .app::before {
 }
 body{font-family:var(--font-texto)!important;font-size:var(--text-body)!important;line-height:var(--line-body)}
 /* Níveis semânticos: títulos de conteúdo; banners e lettering mantêm arte própria. */
-.page .article h1:not(.file-character-name),.page .article .section-head h2{
+.page .article h1:not(.file-character-name){
  font-family:var(--font-titulos)!important;font-size:var(--text-h1)!important;line-height:1.2!important;font-weight:400
 }
 .page .article h2:not(.file-character-name):not(.ficha-hero h2),
@@ -1555,3 +1556,15 @@ body{font-family:var(--font-texto)!important;font-size:var(--text-body)!importan
 
 /* Correção: o título do Fichário segue o padrão de cabeçalho de página, sem quebra indevida. */
 #fichario .section-head h2{display:block!important;width:100%!important;max-width:100%!important;white-space:nowrap!important;overflow-wrap:normal!important;word-break:normal!important;hyphens:none!important;font-family:var(--font-titulos)!important;font-size:var(--text-h1)!important;line-height:1.25!important}
+
+/* Categoria exclusiva de títulos de página — 81px em todas as seções. */
+.page .article .section-head h2,
+#fichario .section-head h2{
+ font-family:var(--font-titulos)!important;
+ font-size:var(--text-page-title)!important;
+ font-weight:400!important;
+ line-height:1.12!important;
+ letter-spacing:normal!important;
+ text-transform:uppercase!important;
+ max-width:100%!important;
+}
