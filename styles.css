@@ -1796,3 +1796,18 @@ body{font-family:var(--font-texto)!important;font-size:var(--text-body)!importan
  #ficha .ficha-sheet-grid > .ficha-biography::-webkit-scrollbar,
  #ficha .ficha-sheet-grid > .ficha-information-panel::-webkit-scrollbar{display:none}
 }
+
+/* Aparência e Relacionamentos: área de texto fixa de duas linhas, com scroll invisível. */
+#ficha .ficha-information-panel .ficha-attribute-two-lines strong{
+ display:block!important;
+ height:calc(2 * 1.55em)!important;
+ min-height:calc(2 * 1.55em)!important;
+ max-height:calc(2 * 1.55em)!important;
+ line-height:1.55!important;
+ overflow-y:auto!important;
+ overflow-x:hidden!important;
+ scrollbar-width:none!important;
+ scrollbar-color:transparent transparent!important;
+ overscroll-behavior:contain;
+}
+#ficha .ficha-information-panel .ficha-attribute-two-lines strong::-webkit-scrollbar{width:0!important;height:0!important;display:none!important}
