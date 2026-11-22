@@ -1697,3 +1697,27 @@ body{font-family:var(--font-texto)!important;font-size:var(--text-body)!importan
  #ficha .ficha-sheet-grid{grid-template-columns:minmax(0,1fr)!important;grid-template-areas:"portrait" "biography" "attributes" "information"!important}
  #ficha .ficha-main-columns{grid-template-columns:minmax(0,1fr)!important}
 }
+
+/* Ficha interna: nome maior na faixa superior à direita do retrato, sem tags. */
+#ficha .ficha-sheet-grid{
+ grid-template-areas:"portrait hero hero" "portrait biography attributes" "portrait biography information"!important;
+ grid-template-rows:auto auto auto!important;
+}
+#ficha .ficha-sheet-grid > .ficha-hero{
+ grid-area:hero!important;min-width:0!important;margin:0 0 6px!important;
+ align-self:end!important;
+}
+#ficha .ficha-sheet-grid > .ficha-hero h2{
+ font-family:var(--font-titulos)!important;
+ font-size:clamp(38px,4.5vw,64px)!important;
+ line-height:1.12!important;
+ margin:0!important;
+ overflow-wrap:anywhere;
+}
+@media(max-width:850px){
+ #ficha .ficha-sheet-grid{grid-template-areas:"portrait hero" "portrait biography" "attributes information"!important}
+}
+@media(max-width:700px){
+ #ficha .ficha-sheet-grid{grid-template-areas:"portrait" "hero" "biography" "attributes" "information"!important}
+ #ficha .ficha-sheet-grid > .ficha-hero{text-align:center}
+}
