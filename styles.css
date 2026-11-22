@@ -1882,6 +1882,6 @@ body{font-family:var(--font-texto)!important;font-size:var(--text-body)!importan
  margin-right:0!important;
 }
 #ficha .ficha-grimoire-panel .ficha-power-content{
- background:linear-gradient(90deg,rgba(100,42,43,.30) 0%,rgba(100,42,43,.18) 55%,rgba(100,42,43,0) 100%)!important;
+ background:linear-gradient(90deg,rgba(100,42,43,0) 0%,rgba(100,42,43,.18) 45%,rgba(100,42,43,.30) 100%)!important;
  border-left:5px solid var(--bg)!important;
 }
