@@ -1747,3 +1747,13 @@ body{font-family:var(--font-texto)!important;font-size:var(--text-body)!importan
  #ficha .ficha-sheet-grid > .ficha-biography{height:auto!important}
  #ficha .ficha-sheet-grid > .ficha-hero{text-align:left!important}
 }
+
+/* Ficha interna: retrato acompanha toda a altura das colunas adjacentes. */
+@media(min-width:851px){
+ #ficha .ficha-sheet-grid > .ficha-portrait-frame{
+  align-self:stretch!important;
+  height:100%!important;
+  min-height:100%!important;
+  aspect-ratio:auto!important;
+ }
+}
