@@ -1757,3 +1757,25 @@ body{font-family:var(--font-texto)!important;font-size:var(--text-body)!importan
   aspect-ratio:auto!important;
  }
 }
+
+/* Retrato maior sem deformar o SVG: imagem e moldura mantêm proporção original 2:3. */
+@media(min-width:851px){
+ #ficha .ficha-sheet-grid{
+  grid-template-columns:minmax(210px,30%) minmax(0,1fr) minmax(230px,31%)!important;
+ }
+ #ficha .ficha-sheet-grid > .ficha-portrait-frame{
+  width:100%!important;
+  height:auto!important;
+  min-height:0!important;
+  max-width:none!important;
+  aspect-ratio:2/3!important;
+  align-self:start!important;
+ }
+}
+#ficha .ficha-portrait-image,
+#ficha .ficha-portrait-ornament{
+ inset:0!important;
+ width:100%!important;
+ height:100%!important;
+}
+#ficha .ficha-portrait-ornament{object-fit:contain!important}
