@@ -1490,6 +1490,7 @@ body:has(.page.active:not(#inicio)) .app::before {
    Alterar os tokens abaixo atualiza os níveis tipográficos do site inteiro. */
 :root{
  --text-page-title:81px;
+ --text-navigation:12px;
  --text-h1:32px;
  --text-h2:22px;
  --text-h3:16px;
@@ -1567,4 +1568,12 @@ body{font-family:var(--font-texto)!important;font-size:var(--text-body)!importan
  letter-spacing:normal!important;
  text-transform:uppercase!important;
  max-width:100%!important;
+}
+
+/* Menu lateral: tipografia oficial da navegação. */
+.sidebar .nav-link{
+ font-family:var(--font-subtitulos)!important;
+ font-size:var(--text-navigation)!important;
+ text-transform:uppercase!important;
+ letter-spacing:1px!important;
 }
