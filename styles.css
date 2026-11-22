@@ -1591,5 +1591,8 @@ body{font-family:var(--font-texto)!important;font-size:var(--text-body)!importan
  bottom:auto!important;
 }
 #fichario .file-info .file-character-name{
- margin-bottom:21px!important;
+ margin-bottom:31px!important;
 }
+
+/* Componente Fichário: 10px adicionais entre a divisória do nome e as tags abaixo. */
+#fichario .file-info .file-character-name{margin-bottom:31px!important}
