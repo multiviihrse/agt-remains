@@ -1779,3 +1779,20 @@ body{font-family:var(--font-texto)!important;font-size:var(--text-body)!importan
  height:100%!important;
 }
 #ficha .ficha-portrait-ornament{object-fit:contain!important}
+
+/* Ficha interna: caixas limitadas à altura da moldura do retrato (desktop). */
+@media(min-width:851px){
+ #ficha .ficha-sheet-grid{
+  aspect-ratio:2.27/1!important;
+  grid-template-rows:auto auto minmax(0,1fr)!important;
+  min-height:0!important;
+ }
+ #ficha .ficha-sheet-grid > .ficha-portrait-frame{height:100%!important;aspect-ratio:2/3!important;align-self:stretch!important}
+ #ficha .ficha-sheet-grid > .ficha-biography,
+ #ficha .ficha-sheet-grid > .ficha-information-panel{
+  min-height:0!important;max-height:100%!important;
+  overflow-y:auto!important;scrollbar-width:none;
+ }
+ #ficha .ficha-sheet-grid > .ficha-biography::-webkit-scrollbar,
+ #ficha .ficha-sheet-grid > .ficha-information-panel::-webkit-scrollbar{display:none}
+}
