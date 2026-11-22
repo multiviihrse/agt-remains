@@ -1811,3 +1811,17 @@ body{font-family:var(--font-texto)!important;font-size:var(--text-body)!importan
  overscroll-behavior:contain;
 }
 #ficha .ficha-information-panel .ficha-attribute-two-lines strong::-webkit-scrollbar{width:0!important;height:0!important;display:none!important}
+
+/* Ficha interna: habilidades em cartões discretos, sem borda, tom vinho suave. */
+#ficha .ficha-grimoire-panel .ficha-power{
+ display:block!important;
+ background:rgba(100,42,43,.20)!important;
+ border:0!important;
+ border-radius:0!important;
+ box-shadow:none!important;
+ padding:12px 14px!important;
+ margin:0 0 9px!important;
+}
+#ficha .ficha-grimoire-panel .ficha-power::after,
+#ficha .ficha-grimoire-panel .ficha-power::before{content:none!important;display:none!important}
+#ficha .ficha-grimoire-panel .ficha-power-body{padding:6px 0 0 25px!important}
