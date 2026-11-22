@@ -1577,3 +1577,10 @@ body{font-family:var(--font-texto)!important;font-size:var(--text-body)!importan
  text-transform:uppercase!important;
  letter-spacing:1px!important;
 }
+
+/* Fichário: acrescenta 10px entre o nome manuscrito e a linha divisória. */
+#fichario .file-info .file-character-name{
+ height:40px!important;
+ max-height:40px!important;
+ padding-bottom:20px!important;
+}
