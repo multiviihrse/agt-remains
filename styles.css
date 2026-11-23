@@ -1971,3 +1971,12 @@ body{font-family:var(--font-texto)!important;font-size:var(--text-body)!importan
 #ficha .ficha-actions-more:hover{color:#fff;background:rgba(100,42,43,.18)}
 #ficha .ficha-actions-more[hidden]{display:none!important}
 #ficha .ficha-actions-more:disabled{opacity:.6;cursor:wait}
+
+/* Dados — layout e tipografia padronizados */
+#dados .dice-first{display:grid!important;grid-template-columns:minmax(0,1fr) minmax(0,2fr)!important;gap:10px!important}
+#dados .dice-first>.dice-icon-field:last-child{grid-column:1/-1}
+#dados .dice-second{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:10px!important}
+#dados .dice-grid input,#dados .dice-grid select,#dados .dice-test-fields input,#dados .dice-test-fields select{font-size:14px!important;line-height:20px!important}
+#dados .dice-grid select option,#dados .dice-test-fields select option{font-size:14px!important}
+#dados .dice-test-fields{grid-template-columns:minmax(0,2fr) minmax(0,1fr)!important}
+@media(max-width:650px){#dados .dice-first{grid-template-columns:minmax(0,1fr)!important}#dados .dice-first>.dice-icon-field:last-child{grid-column:auto}#dados .dice-second{grid-template-columns:repeat(2,minmax(0,1fr))!important}}
