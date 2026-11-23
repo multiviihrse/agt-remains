@@ -1980,3 +1980,9 @@ body{font-family:var(--font-texto)!important;font-size:var(--text-body)!importan
 #dados .dice-grid select option,#dados .dice-test-fields select option{font-size:14px!important}
 #dados .dice-test-fields{grid-template-columns:minmax(0,2fr) minmax(0,1fr)!important}
 @media(max-width:650px){#dados .dice-first{grid-template-columns:minmax(0,1fr)!important}#dados .dice-first>.dice-icon-field:last-child{grid-column:auto}#dados .dice-second{grid-template-columns:repeat(2,minmax(0,1fr))!important}}
+
+/* Dados: ação ocupa a largura restante; MOD, SAN e dificuldade compartilham a linha inferior */
+#dados .dice-first{grid-template-columns:minmax(0,1fr) minmax(0,2fr)!important}
+#dados .dice-first>.dice-icon-field:last-child{grid-column:auto}
+#dados .dice-second{grid-template-columns:repeat(3,minmax(0,1fr))!important}
+@media(max-width:650px){#dados .dice-first{grid-template-columns:minmax(0,1fr)!important}#dados .dice-second{grid-template-columns:repeat(3,minmax(0,1fr))!important}}
