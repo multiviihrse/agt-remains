@@ -2087,3 +2087,10 @@ body{font-family:var(--font-texto)!important;font-size:var(--text-body)!importan
 #ambientacao .ambient-tabs{background:transparent!important;justify-content:center!important}
 #ambientacao .ambient-map{width:min(100%,820px);max-width:100%;box-sizing:border-box}
 #ambientacao .ambient-map img{display:block;width:100%;height:auto;max-width:100%;object-fit:contain}
+
+#ambientacao .ambient-map-open{display:block;width:100%;padding:0;border:0;background:none;cursor:zoom-in}
+#ambientacao .ambient-map-dialog{position:fixed;inset:0;margin:auto;width:96vw;height:94dvh;max-width:none;max-height:none;padding:40px 12px 12px;border:0;background:#17110f;color:#fff;box-sizing:border-box;overflow:auto}
+#ambientacao .ambient-map-dialog::backdrop{background:rgba(0,0,0,.88)}
+#ambientacao .ambient-map-close{position:absolute;right:12px;top:4px;background:transparent;border:0;color:white;font-size:30px;cursor:pointer;z-index:2}
+#ambientacao .ambient-map-large{height:100%;display:flex;align-items:center;justify-content:center}
+#ambientacao .ambient-map-large img{width:auto;height:auto;max-width:100%;max-height:100%;object-fit:contain}
