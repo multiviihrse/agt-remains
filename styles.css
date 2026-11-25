@@ -2099,3 +2099,6 @@ body{font-family:var(--font-texto)!important;font-size:var(--text-body)!importan
 #ambientacao .ambient-map-large img{display:block;max-width:none!important;max-height:none!important;height:auto!important;margin:auto;cursor:zoom-in;flex:none}
 #ambientacao .ambient-map-tools{position:absolute;top:6px;left:12px;display:flex;gap:8px;align-items:center;z-index:3;color:#fff;font-size:12px}
 #ambientacao .ambient-map-tools button{background:#33241b;color:#dbb99c;border:0;border-radius:4px;padding:4px 10px;cursor:pointer}
+
+#ambientacao .ambient-map-large img{cursor:grab!important;user-select:none;-webkit-user-drag:none}
+#ambientacao .ambient-map-large.is-dragging,#ambientacao .ambient-map-large.is-dragging img{cursor:grabbing!important}
