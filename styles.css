@@ -2146,3 +2146,11 @@ body{font-family:var(--font-texto)!important;font-size:var(--text-body)!importan
 
 #ambientacao .city-menu button{background:color-mix(in srgb,var(--bg) 70%,transparent)!important}
 #ambientacao .city-menu button[aria-pressed=true]{background:rgba(225,185,157,.7)!important}
+
+/* Ambientação: mapa e cidade ocupam toda a largura útil da página. */
+#ambientacao #ambient-panel-1,#ambientacao #ambient-panel-2{width:100%;max-width:100%;min-width:0;align-self:stretch}
+#ambientacao .ambient-map,#ambientacao .city-gallery{width:100%!important;max-width:100%!important;aspect-ratio:16/9;height:auto!important;box-sizing:border-box}
+#ambientacao .ambient-map{overflow:hidden;background:var(--bg)}
+#ambientacao .ambient-map a{width:100%;height:100%}
+#ambientacao .ambient-map img{width:100%;height:100%;object-fit:contain}
+#ambientacao:has(#ambient-tab-1[aria-selected=true]) .ambient-tabs,#ambientacao:has(#ambient-tab-2[aria-selected=true]) .ambient-tabs{width:100%!important}
