@@ -1997,3 +1997,9 @@ body{font-family:var(--font-texto)!important;font-size:var(--text-body)!importan
 #sistema .system-track{display:flex;align-items:flex-start;transition:transform .35s ease;will-change:transform}
 #sistema .system-track>.system-chapter{flex:0 0 100%;min-width:0;box-sizing:border-box;margin:0!important;padding:0!important;border:0!important;overflow-wrap:anywhere}
 @media(prefers-reduced-motion:reduce){#sistema .system-track,#sistema .system-viewport{transition:none!important}}
+
+/* Abas do Sistema no formato das tags do fichário. */
+#sistema .system-tabs{gap:6px!important;border:0!important;align-items:center!important;padding:2px 0!important}
+#sistema .system-tabs button{flex:0 0 auto!important;border:1px solid transparent!important;border-radius:4px!important;background:transparent!important;padding:5px 9px!important;line-height:1.3!important;color:#b69a88!important}
+#sistema .system-tabs button[aria-selected=true]{background:rgba(100,42,43,.35)!important;border-color:rgba(185,146,117,.35)!important;color:#f3d0b4!important}
+#sistema .system-tabs button:not([aria-selected=true]):hover{background:transparent!important;color:#fff!important}
