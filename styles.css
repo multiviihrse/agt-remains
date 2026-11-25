@@ -2018,3 +2018,7 @@ body{font-family:var(--font-texto)!important;font-size:var(--text-body)!importan
 #sistema .system-frame-left{left:3px}#sistema .system-frame-right{right:3px}
 #sistema .system-tabs,#sistema .system-viewport{position:relative;z-index:1}
 @media(max-width:650px){#sistema .article-card.system-content{padding:30px 18px!important}#sistema .system-frame-corner{width:61px;height:42px}#sistema .system-frame-side{top:45px;bottom:45px}#sistema .system-content::before,#sistema .system-content::after{left:64px!important;right:64px!important}}
+
+/* Sistema: borda externa e tipografia das abas. */
+#sistema .article-card.system-content{border:1px solid #B99275!important}
+#sistema .system-tabs button{font-family:var(--font-titulos)!important;text-transform:uppercase!important}
