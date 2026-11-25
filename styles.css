@@ -2027,3 +2027,10 @@ body{font-family:var(--font-texto)!important;font-size:var(--text-body)!importan
 #sistema .article-card.system-content{width:100%!important;max-width:none!important}
 #sistema .system-tabs{justify-content:space-between!important}
 @media(max-width:900px){#sistema .system-tabs{justify-content:flex-start!important}}
+
+/* Sistema: largura determinada pela linha compacta de abas, não pelo texto dos capítulos. */
+#sistema .article-card.system-content{display:grid!important;grid-template-columns:minmax(0,max-content);width:max-content!important;max-width:100%!important}
+#sistema .system-tabs{justify-content:flex-start!important;gap:2px!important;min-width:0;max-width:100%}
+#sistema .system-tabs button{padding:5px 7px!important}
+#sistema .system-viewport{width:0;min-width:100%;max-width:100%}
+@media(max-width:650px){#sistema .article-card.system-content{width:100%!important;grid-template-columns:minmax(0,1fr)}}
