@@ -2022,3 +2022,8 @@ body{font-family:var(--font-texto)!important;font-size:var(--text-body)!importan
 /* Sistema: borda externa e tipografia das abas. */
 #sistema .article-card.system-content{border:1px solid #B99275!important}
 #sistema .system-tabs button{font-family:var(--font-titulos)!important;text-transform:uppercase!important}
+
+/* Sistema: largura ampliada para acomodar as sete abas. */
+#sistema .article-card.system-content{width:100%!important;max-width:none!important}
+#sistema .system-tabs{justify-content:space-between!important}
+@media(max-width:900px){#sistema .system-tabs{justify-content:flex-start!important}}
