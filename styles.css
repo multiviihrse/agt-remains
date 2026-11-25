@@ -2092,3 +2092,24 @@ body{font-family:var(--font-texto)!important;font-size:var(--text-body)!importan
 
 
 #ambientacao .ambient-map a{display:block;cursor:pointer}
+
+/* Cidade: galeria imersiva */
+#ambientacao .city-gallery{position:relative;isolation:isolate;width:min(100%,820px);height:clamp(390px,54vw,500px);overflow:hidden;border:1px solid #795b48;box-sizing:border-box;background:#241916;color:#fff}
+#ambientacao .city-viewport,#ambientacao .city-shade{position:absolute;inset:0;overflow:hidden}
+#ambientacao .city-viewport{touch-action:pan-y}
+#ambientacao .city-track{height:100%;display:flex;transition:transform .35s ease}
+#ambientacao .city-slide{flex:0 0 100%;min-width:0;height:100%;display:flex;align-items:center;justify-content:center;background:radial-gradient(ellipse at 75% 40%,#4c4035,#241916);color:#b69a88;text-decoration:none}
+#ambientacao .city-slide img{width:100%;height:100%;object-fit:cover;display:block}
+#ambientacao .city-slide span{margin-left:35%;font-size:12px;text-align:center;padding:12px}
+#ambientacao .city-shade{pointer-events:none;background:linear-gradient(90deg,#17110f 0%,#17110ff5 20%,#17110fa3 36%,transparent 67%),linear-gradient(0deg,#17110fe8,transparent 22%)}
+#ambientacao .city-menu{position:absolute;left:12px;top:12px;bottom:40px;width:42%;display:flex;flex-direction:column;justify-content:safe center;gap:3px;overflow:auto;scrollbar-width:none}
+#ambientacao .city-menu button{flex:none;text-align:left;border:0;border-left:2px solid transparent;border-radius:0;background:transparent;color:#c4ae99;padding:7px 8px;font-family:var(--font-titulos);font-size:12px;line-height:1.25;cursor:pointer}
+#ambientacao .city-menu button[aria-pressed=true]{border-left-color:#d6ae8c;background:linear-gradient(90deg,#9e6b453b,transparent);color:#fff}
+#ambientacao .city-menu button:hover{color:#fff}
+#ambientacao .city-title{position:absolute;right:14px;top:14px;max-width:53%;text-align:right;pointer-events:none;text-shadow:0 2px 5px #000}
+#ambientacao .city-title small{font:9px monospace;letter-spacing:2px;color:#f0d7bb}
+#ambientacao .city-title h3{font-size:21px!important;color:#fff!important;margin:5px 0!important}
+#ambientacao .city-pagination{position:absolute;bottom:12px;left:0;right:0;display:flex;align-items:center;justify-content:center;gap:12px;pointer-events:none}
+#ambientacao .city-pagination button{pointer-events:auto;border:0;padding:0;width:7px;height:7px;border-radius:20px;background:#ae9b8988;cursor:pointer;transition:width .2s}
+#ambientacao .city-pagination button[aria-current=true]{width:18px;background:#e1b99d}
+@media(max-width:550px){#ambientacao .city-menu{left:5px;width:48%}#ambientacao .city-menu button{font-size:10px;padding:7px 4px}#ambientacao .city-title h3{font-size:16px!important}#ambientacao .city-shade{background:linear-gradient(90deg,#17110f 0%,#17110fe8 30%,transparent 80%),linear-gradient(0deg,#17110fe8,transparent 22%)}}
