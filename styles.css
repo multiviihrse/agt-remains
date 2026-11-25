@@ -2154,3 +2154,7 @@ body{font-family:var(--font-texto)!important;font-size:var(--text-body)!importan
 #ambientacao .ambient-map a{width:100%;height:100%}
 #ambientacao .ambient-map img{width:100%;height:100%;object-fit:contain}
 #ambientacao:has(#ambient-tab-1[aria-selected=true]) .ambient-tabs,#ambientacao:has(#ambient-tab-2[aria-selected=true]) .ambient-tabs{width:100%!important}
+
+/* Sistema e Combate: largura integral dentro do padding da página. */
+:is(#sistema,#combate) .article-card.system-content{width:100%!important;max-width:100%!important;min-width:0!important;box-sizing:border-box;grid-template-columns:minmax(0,1fr)!important;align-self:stretch}
+:is(#sistema,#combate) .system-viewport{width:100%!important;min-width:0!important;max-width:100%!important}
