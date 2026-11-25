@@ -2137,3 +2137,9 @@ body{font-family:var(--font-texto)!important;font-size:var(--text-body)!importan
 #ambientacao .city-menu button{font-size:12px!important;line-height:1.15!important;text-transform:uppercase!important;border:0!important;border-radius:999px!important;background:var(--bg)!important;color:#e1b99d!important;padding:4px 9px!important;width:max-content;max-width:100%;text-align:left}
 #ambientacao .city-menu button[aria-pressed=true]{background:#e1b99d!important;color:var(--bg)!important}
 #ambientacao .city-menu button:hover:not([aria-pressed=true]){color:#fff!important}
+
+#ambientacao .city-menu button{display:flex!important;align-items:center;flex-shrink:0;white-space:nowrap;overflow:hidden;width:max-content;max-width:100%;gap:0!important}
+#ambientacao .city-tag-number{flex:none}
+#ambientacao .city-tag-name{display:block;max-width:0;opacity:0;overflow:hidden;white-space:nowrap;transition:max-width .3s ease,opacity .2s ease,margin-left .3s ease;margin-left:0}
+#ambientacao .city-menu button:hover .city-tag-name,#ambientacao .city-menu button:focus-visible .city-tag-name{max-width:220px;opacity:1;margin-left:6px}
+@media(prefers-reduced-motion:reduce){#ambientacao .city-tag-name{transition:none}}
