@@ -2143,3 +2143,6 @@ body{font-family:var(--font-texto)!important;font-size:var(--text-body)!importan
 #ambientacao .city-tag-name{display:block;max-width:0;opacity:0;overflow:hidden;white-space:nowrap;transition:max-width .3s ease,opacity .2s ease,margin-left .3s ease;margin-left:0}
 #ambientacao .city-menu button:hover .city-tag-name,#ambientacao .city-menu button:focus-visible .city-tag-name{max-width:220px;opacity:1;margin-left:6px}
 @media(prefers-reduced-motion:reduce){#ambientacao .city-tag-name{transition:none}}
+
+#ambientacao .city-menu button{background:color-mix(in srgb,var(--bg) 70%,transparent)!important}
+#ambientacao .city-menu button[aria-pressed=true]{background:rgba(225,185,157,.7)!important}
