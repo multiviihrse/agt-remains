@@ -2080,3 +2080,6 @@ body{font-family:var(--font-texto)!important;font-size:var(--text-body)!importan
 #ambientacao .ambient-tabs button[aria-selected=true]{background:#33241b;color:#dbb99c}
 #ambientacao .ambient-tabs button:hover{color:#fff}
 #ambientacao [role=tabpanel][hidden]{display:none!important}
+
+/* Ambientação: menu sem moldura, alinhado à largura do dossiê. */
+#ambientacao .ambient-tabs{width:min(100%,820px)!important;max-width:100%!important;border:0!important;box-shadow:none!important;justify-content:flex-start;padding:8px 0!important}
