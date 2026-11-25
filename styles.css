@@ -2083,3 +2083,7 @@ body{font-family:var(--font-texto)!important;font-size:var(--text-body)!importan
 
 /* Ambientação: menu sem moldura, alinhado à largura do dossiê. */
 #ambientacao .ambient-tabs{width:min(100%,820px)!important;max-width:100%!important;border:0!important;box-shadow:none!important;justify-content:flex-start;padding:8px 0!important}
+
+#ambientacao .ambient-tabs{background:transparent!important;justify-content:center!important}
+#ambientacao .ambient-map{width:min(100%,820px);max-width:100%;box-sizing:border-box}
+#ambientacao .ambient-map img{display:block;width:100%;height:auto;max-width:100%;object-fit:contain}
