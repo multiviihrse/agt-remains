@@ -237,15 +237,15 @@ body:has(.page.active:not(#inicio)) .app::before{opacity:.8!important}
 /* 24 × 24 px sidebar navigation symbols */
 .sidebar .nav-link > span:first-child{width:24px!important;height:24px!important;min-width:24px!important;max-width:24px!important;max-height:24px!important;flex:0 0 24px;display:inline-flex;align-items:center;justify-content:center;font-size:24px!important;line-height:24px!important;overflow:hidden;}
 /* Complete System chapter typography */
-#sistema .article-card.system-content{max-width:980px;}
-#sistema .system-chapter + .system-chapter{margin-top:32px;padding-top:28px;border-top:1px solid transparent;border-image:linear-gradient(90deg,transparent,var(--agt-border, #986953),transparent) 1;}
-#sistema .system-chapter h3{font-size:clamp(22px,2.3vw,30px);line-height:1.25;margin:0 0 20px!important;letter-spacing:.2px;}
-#sistema .system-chapter h3 em{font-style:italic;}
-#sistema .system-chapter p{margin-bottom:19px!important;}
-#sistema .system-chapter strong{color:#f3d0b4;font-weight:700;}
-#sistema .system-emphasis{padding:15px 18px;border-left:2px solid var(--agt-border,#986953);background:rgba(12,13,7,.42);}
-#sistema .system-results{margin:0 0 22px 0;padding-left:22px;}
-#sistema .system-results li{padding-left:5px;margin-bottom:12px;line-height:1.7;}
+:is(#sistema,#combate) .article-card.system-content{max-width:980px;}
+:is(#sistema,#combate) .system-chapter + .system-chapter{margin-top:32px;padding-top:28px;border-top:1px solid transparent;border-image:linear-gradient(90deg,transparent,var(--agt-border, #986953),transparent) 1;}
+:is(#sistema,#combate) .system-chapter h3{font-size:clamp(22px,2.3vw,30px);line-height:1.25;margin:0 0 20px!important;letter-spacing:.2px;}
+:is(#sistema,#combate) .system-chapter h3 em{font-style:italic;}
+:is(#sistema,#combate) .system-chapter p{margin-bottom:19px!important;}
+:is(#sistema,#combate) .system-chapter strong{color:#f3d0b4;font-weight:700;}
+:is(#sistema,#combate) .system-emphasis{padding:15px 18px;border-left:2px solid var(--agt-border,#986953);background:rgba(12,13,7,.42);}
+:is(#sistema,#combate) .system-results{margin:0 0 22px 0;padding-left:22px;}
+:is(#sistema,#combate) .system-results li{padding-left:5px;margin-bottom:12px;line-height:1.7;}
 
 /* Remoção do ornamento inferior da barra lateral. */
 .sidebar-ornament{display:none!important;background:none!important}
@@ -258,7 +258,7 @@ body:has(.page.active:not(#inicio)) .app::before{opacity:.8!important}
 body,button,input,select,textarea{font-family:var(--font-texto)!important;}
 /* Títulos principais, caixas de navegação e capítulos. */
 .hero-copy h1,.feature strong,.story-panel h2,.section-head h2,
-.article-card h3,dialog h2,#sistema .system-chapter h3{
+.article-card h3,dialog h2,:is(#sistema,#combate) .system-chapter h3{
   font-family:var(--font-titulos)!important;
   font-style:normal;
 }
@@ -331,7 +331,7 @@ body,button,input,select,textarea{font-family:var(--font-texto)!important;}
   font-style:normal!important;
 }
 .feature strong,.story-panel h2,.article-card h3,dialog h2,
-#sistema .system-chapter h3,.system-chapter h3 em,
+:is(#sistema,#combate) .system-chapter h3,.system-chapter h3 em,
 .article-card h3 em,.feature strong em{font-style:normal!important;}
 
 
@@ -352,7 +352,7 @@ body:has(.page.active:not(#inicio)) .app::before {
 /* Tipografia fixa, independentemente de viewport e regras do Sistema. */
 .page:not(#inicio) h3,
 .page:not(#inicio) .article-card h3,
-#sistema .system-chapter h3 {
+:is(#sistema,#combate) .system-chapter h3 {
   font-size: 22px !important;
 }
 /* Compatibilidade em dispositivos que não implementam fundos fixos. */
@@ -372,7 +372,7 @@ body:has(.page.active:not(#inicio)) .app::before {
 
 /* Caixas de conteúdo das páginas internas: três quartos da largura útil. */
 .page:not(#inicio) .article-card,
-#sistema .article-card.system-content {
+:is(#sistema,#combate) .article-card.system-content {
   width: 75% !important;
   max-width: none !important;
   box-sizing: border-box;
@@ -380,7 +380,7 @@ body:has(.page.active:not(#inicio)) .app::before {
 /* Em telas estreitas, preservar a legibilidade sem transbordamento. */
 @media (max-width: 700px) {
   .page:not(#inicio) .article-card,
-  #sistema .article-card.system-content {
+  :is(#sistema,#combate) .article-card.system-content {
     width: 100% !important;
   }
 }
@@ -1988,54 +1988,62 @@ body{font-family:var(--font-texto)!important;font-size:var(--text-body)!importan
 @media(max-width:650px){#dados .dice-first{grid-template-columns:minmax(0,1fr)!important}#dados .dice-second{grid-template-columns:repeat(3,minmax(0,1fr))!important}}
 
 /* Sistema: navegação horizontal por capítulos. */
-#sistema .system-tabs{display:flex;gap:0;overflow-x:auto;scrollbar-width:none;border-bottom:1px solid rgba(185,146,117,.35);margin:0 0 24px;align-items:stretch}
-#sistema .system-tabs::-webkit-scrollbar{width:0;height:0}
-#sistema .system-tabs button{flex:1 0 auto;white-space:nowrap;border:0;border-bottom:2px solid transparent;background:transparent;color:#b69a88;padding:10px 12px;font-family:var(--font-subtitulos,inherit);font-size:11px;cursor:pointer}
-#sistema .system-tabs button[aria-selected=true]{color:#f3d0b4;border-bottom-color:#b99275;background:linear-gradient(0deg,rgba(100,42,43,.25),transparent)}
-#sistema .system-tabs button:hover{color:#fff}
-#sistema .system-viewport{overflow:hidden;min-width:0;touch-action:pan-y;transition:height .3s ease}
-#sistema .system-track{display:flex;align-items:flex-start;transition:transform .35s ease;will-change:transform}
-#sistema .system-track>.system-chapter{flex:0 0 100%;min-width:0;box-sizing:border-box;margin:0!important;padding:0!important;border:0!important;overflow-wrap:anywhere}
-@media(prefers-reduced-motion:reduce){#sistema .system-track,#sistema .system-viewport{transition:none!important}}
+:is(#sistema,#combate) .system-tabs{display:flex;gap:0;overflow-x:auto;scrollbar-width:none;border-bottom:1px solid rgba(185,146,117,.35);margin:0 0 24px;align-items:stretch}
+:is(#sistema,#combate) .system-tabs::-webkit-scrollbar{width:0;height:0}
+:is(#sistema,#combate) .system-tabs button{flex:1 0 auto;white-space:nowrap;border:0;border-bottom:2px solid transparent;background:transparent;color:#b69a88;padding:10px 12px;font-family:var(--font-subtitulos,inherit);font-size:11px;cursor:pointer}
+:is(#sistema,#combate) .system-tabs button[aria-selected=true]{color:#f3d0b4;border-bottom-color:#b99275;background:linear-gradient(0deg,rgba(100,42,43,.25),transparent)}
+:is(#sistema,#combate) .system-tabs button:hover{color:#fff}
+:is(#sistema,#combate) .system-viewport{overflow:hidden;min-width:0;touch-action:pan-y;transition:height .3s ease}
+:is(#sistema,#combate) .system-track{display:flex;align-items:flex-start;transition:transform .35s ease;will-change:transform}
+:is(#sistema,#combate) .system-track>.system-chapter{flex:0 0 100%;min-width:0;box-sizing:border-box;margin:0!important;padding:0!important;border:0!important;overflow-wrap:anywhere}
+@media(prefers-reduced-motion:reduce){:is(#sistema,#combate) .system-track,:is(#sistema,#combate) .system-viewport{transition:none!important}}
 
 /* Abas do Sistema no formato das tags do fichário. */
-#sistema .system-tabs{gap:6px!important;border:0!important;align-items:center!important;padding:2px 0!important}
-#sistema .system-tabs button{flex:0 0 auto!important;border:1px solid transparent!important;border-radius:999px!important;background:transparent!important;padding:5px 9px!important;line-height:1.3!important;color:#b69a88!important}
-#sistema .system-tabs button[aria-selected=true]{background:#33241b!important;border-color:transparent!important;color:#dbb99c!important}
-#sistema .system-tabs button:not([aria-selected=true]):hover{background:transparent!important;color:#fff!important}
+:is(#sistema,#combate) .system-tabs{gap:6px!important;border:0!important;align-items:center!important;padding:2px 0!important}
+:is(#sistema,#combate) .system-tabs button{flex:0 0 auto!important;border:1px solid transparent!important;border-radius:999px!important;background:transparent!important;padding:5px 9px!important;line-height:1.3!important;color:#b69a88!important}
+:is(#sistema,#combate) .system-tabs button[aria-selected=true]{background:#33241b!important;border-color:transparent!important;color:#dbb99c!important}
+:is(#sistema,#combate) .system-tabs button:not([aria-selected=true]):hover{background:transparent!important;color:#fff!important}
 
 /* Sistema: moldura ornamental da identidade visual do fichário. */
-#sistema .article-card.system-content{position:relative!important;background:var(--bg)!important;border:0!important;border-radius:0!important;box-shadow:none!important;padding:36px 30px!important;isolation:isolate}
-#sistema .system-content::before,#sistema .system-content::after{content:""!important;position:absolute!important;left:75px!important;right:75px!important;height:1px!important;width:auto!important;background:linear-gradient(90deg,transparent,#B99275,transparent)!important;border:0!important;pointer-events:none;z-index:0}
-#sistema .system-content::before{top:3px!important;bottom:auto!important}
-#sistema .system-content::after{bottom:3px!important;top:auto!important}
-#sistema .system-frame-corner{position:absolute;display:block;width:72px;height:49px;background:url("assets/fichario/arabesco-canto.svg") center/100% 100% no-repeat;opacity:.82;pointer-events:none;z-index:0}
-#sistema .system-frame-tl{top:3px;left:3px}
-#sistema .system-frame-tr{top:3px;right:3px;transform:scaleX(-1)}
-#sistema .system-frame-bl{bottom:3px;left:3px;transform:scaleY(-1)}
-#sistema .system-frame-br{bottom:3px;right:3px;transform:scale(-1,-1)}
-#sistema .system-frame-side{position:absolute;top:52px;bottom:52px;width:1px;background:linear-gradient(180deg,transparent,#B99275,transparent);pointer-events:none;z-index:0}
-#sistema .system-frame-left{left:3px}#sistema .system-frame-right{right:3px}
-#sistema .system-tabs,#sistema .system-viewport{position:relative;z-index:1}
-@media(max-width:650px){#sistema .article-card.system-content{padding:30px 18px!important}#sistema .system-frame-corner{width:61px;height:42px}#sistema .system-frame-side{top:45px;bottom:45px}#sistema .system-content::before,#sistema .system-content::after{left:64px!important;right:64px!important}}
+:is(#sistema,#combate) .article-card.system-content{position:relative!important;background:var(--bg)!important;border:0!important;border-radius:0!important;box-shadow:none!important;padding:36px 30px!important;isolation:isolate}
+:is(#sistema,#combate) .system-content::before,:is(#sistema,#combate) .system-content::after{content:""!important;position:absolute!important;left:75px!important;right:75px!important;height:1px!important;width:auto!important;background:linear-gradient(90deg,transparent,#B99275,transparent)!important;border:0!important;pointer-events:none;z-index:0}
+:is(#sistema,#combate) .system-content::before{top:3px!important;bottom:auto!important}
+:is(#sistema,#combate) .system-content::after{bottom:3px!important;top:auto!important}
+:is(#sistema,#combate) .system-frame-corner{position:absolute;display:block;width:72px;height:49px;background:url("assets/fichario/arabesco-canto.svg") center/100% 100% no-repeat;opacity:.82;pointer-events:none;z-index:0}
+:is(#sistema,#combate) .system-frame-tl{top:3px;left:3px}
+:is(#sistema,#combate) .system-frame-tr{top:3px;right:3px;transform:scaleX(-1)}
+:is(#sistema,#combate) .system-frame-bl{bottom:3px;left:3px;transform:scaleY(-1)}
+:is(#sistema,#combate) .system-frame-br{bottom:3px;right:3px;transform:scale(-1,-1)}
+:is(#sistema,#combate) .system-frame-side{position:absolute;top:52px;bottom:52px;width:1px;background:linear-gradient(180deg,transparent,#B99275,transparent);pointer-events:none;z-index:0}
+:is(#sistema,#combate) .system-frame-left{left:3px}:is(#sistema,#combate) .system-frame-right{right:3px}
+:is(#sistema,#combate) .system-tabs,:is(#sistema,#combate) .system-viewport{position:relative;z-index:1}
+@media(max-width:650px){:is(#sistema,#combate) .article-card.system-content{padding:30px 18px!important}:is(#sistema,#combate) .system-frame-corner{width:61px;height:42px}:is(#sistema,#combate) .system-frame-side{top:45px;bottom:45px}:is(#sistema,#combate) .system-content::before,:is(#sistema,#combate) .system-content::after{left:64px!important;right:64px!important}}
 
 /* Sistema: borda externa e tipografia das abas. */
-#sistema .article-card.system-content{border:1px solid #B99275!important}
-#sistema .system-tabs button{font-family:var(--font-titulos)!important;text-transform:uppercase!important}
+:is(#sistema,#combate) .article-card.system-content{border:1px solid #B99275!important}
+:is(#sistema,#combate) .system-tabs button{font-family:var(--font-titulos)!important;text-transform:uppercase!important}
 
 /* Sistema: largura ampliada para acomodar as sete abas. */
-#sistema .article-card.system-content{width:100%!important;max-width:none!important}
-#sistema .system-tabs{justify-content:space-between!important}
-@media(max-width:900px){#sistema .system-tabs{justify-content:flex-start!important}}
+:is(#sistema,#combate) .article-card.system-content{width:100%!important;max-width:none!important}
+:is(#sistema,#combate) .system-tabs{justify-content:space-between!important}
+@media(max-width:900px){:is(#sistema,#combate) .system-tabs{justify-content:flex-start!important}}
 
 /* Sistema: largura determinada pela linha compacta de abas, não pelo texto dos capítulos. */
-#sistema .article-card.system-content{display:grid!important;grid-template-columns:minmax(0,max-content);width:max-content!important;max-width:100%!important}
-#sistema .system-tabs{justify-content:flex-start!important;gap:2px!important;min-width:0;max-width:100%}
-#sistema .system-tabs button{padding:5px 7px!important}
-#sistema .system-viewport{width:0;min-width:100%;max-width:100%}
-@media(max-width:650px){#sistema .article-card.system-content{width:100%!important;grid-template-columns:minmax(0,1fr)}}
+:is(#sistema,#combate) .article-card.system-content{display:grid!important;grid-template-columns:minmax(0,max-content);width:max-content!important;max-width:100%!important}
+:is(#sistema,#combate) .system-tabs{justify-content:flex-start!important;gap:2px!important;min-width:0;max-width:100%}
+:is(#sistema,#combate) .system-tabs button{padding:5px 7px!important}
+:is(#sistema,#combate) .system-viewport{width:0;min-width:100%;max-width:100%}
+@media(max-width:650px){:is(#sistema,#combate) .article-card.system-content{width:100%!important;grid-template-columns:minmax(0,1fr)}}
 
 /* Sistema: rolagem horizontal das abas sem barra visível. */
-#sistema .system-tabs{display:flex!important;flex-wrap:nowrap!important;overflow-x:auto!important;overflow-y:hidden!important;min-width:0!important;max-width:100%!important;scrollbar-width:none!important;-ms-overflow-style:none!important;touch-action:pan-x pan-y;-webkit-overflow-scrolling:touch}
-#sistema .system-tabs::-webkit-scrollbar{display:none!important;width:0!important;height:0!important}
-#sistema .system-tabs button{flex-shrink:0!important;white-space:nowrap!important}
+:is(#sistema,#combate) .system-tabs{display:flex!important;flex-wrap:nowrap!important;overflow-x:auto!important;overflow-y:hidden!important;min-width:0!important;max-width:100%!important;scrollbar-width:none!important;-ms-overflow-style:none!important;touch-action:pan-x pan-y;-webkit-overflow-scrolling:touch}
+:is(#sistema,#combate) .system-tabs::-webkit-scrollbar{display:none!important;width:0!important;height:0!important}
+:is(#sistema,#combate) .system-tabs button{flex-shrink:0!important;white-space:nowrap!important}
+
+/* Tabelas de combate e sanidade. */
+#combate .combat-table-wrap{overflow-x:auto;scrollbar-width:none;margin:0 0 19px}
+#combate .combat-table-wrap::-webkit-scrollbar{display:none;width:0;height:0}
+#combate .combat-table{width:100%;border-collapse:collapse;font:inherit;color:inherit;font-size:inherit}
+#combate .combat-table th,#combate .combat-table td{padding:9px 12px;text-align:left;vertical-align:top;border-bottom:1px solid rgba(185,146,117,.25)}
+#combate .combat-table th{background:#33241b;color:#dbb99c;font-weight:600}
+#combate .combat-table td:first-child{color:#e1b99d}
