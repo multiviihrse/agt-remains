@@ -2130,3 +2130,10 @@ body{font-family:var(--font-texto)!important;font-size:var(--text-body)!importan
 
 #ambientacao .city-menu button{font-size:14px!important;text-transform:uppercase!important}
 #ambientacao .city-shade{background:linear-gradient(90deg,rgba(23,17,15,.30) 0%,rgba(23,17,15,.30) 20%,rgba(23,17,15,.20) 36%,transparent 67%),linear-gradient(0deg,#17110fe8,transparent 22%)}
+
+/* Cidade: localidades em tags independentes, sem fundo lateral. */
+#ambientacao .city-shade{background:linear-gradient(0deg,#17110fe8,transparent 22%)}
+#ambientacao .city-menu{background:transparent!important;gap:2px!important;align-items:flex-start}
+#ambientacao .city-menu button{font-size:12px!important;line-height:1.15!important;text-transform:uppercase!important;border:0!important;border-radius:999px!important;background:var(--bg)!important;color:#e1b99d!important;padding:4px 9px!important;width:max-content;max-width:100%;text-align:left}
+#ambientacao .city-menu button[aria-pressed=true]{background:#e1b99d!important;color:var(--bg)!important}
+#ambientacao .city-menu button:hover:not([aria-pressed=true]){color:#fff!important}
