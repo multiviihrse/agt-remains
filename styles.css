@@ -1986,3 +1986,14 @@ body{font-family:var(--font-texto)!important;font-size:var(--text-body)!importan
 #dados .dice-first>.dice-icon-field:last-child{grid-column:auto}
 #dados .dice-second{grid-template-columns:repeat(3,minmax(0,1fr))!important}
 @media(max-width:650px){#dados .dice-first{grid-template-columns:minmax(0,1fr)!important}#dados .dice-second{grid-template-columns:repeat(3,minmax(0,1fr))!important}}
+
+/* Sistema: navegação horizontal por capítulos. */
+#sistema .system-tabs{display:flex;gap:0;overflow-x:auto;scrollbar-width:none;border-bottom:1px solid rgba(185,146,117,.35);margin:0 0 24px;align-items:stretch}
+#sistema .system-tabs::-webkit-scrollbar{width:0;height:0}
+#sistema .system-tabs button{flex:1 0 auto;white-space:nowrap;border:0;border-bottom:2px solid transparent;background:transparent;color:#b69a88;padding:10px 12px;font-family:var(--font-subtitulos,inherit);font-size:11px;cursor:pointer}
+#sistema .system-tabs button[aria-selected=true]{color:#f3d0b4;border-bottom-color:#b99275;background:linear-gradient(0deg,rgba(100,42,43,.25),transparent)}
+#sistema .system-tabs button:hover{color:#fff}
+#sistema .system-viewport{overflow:hidden;min-width:0;touch-action:pan-y;transition:height .3s ease}
+#sistema .system-track{display:flex;align-items:flex-start;transition:transform .35s ease;will-change:transform}
+#sistema .system-track>.system-chapter{flex:0 0 100%;min-width:0;box-sizing:border-box;margin:0!important;padding:0!important;border:0!important;overflow-wrap:anywhere}
+@media(prefers-reduced-motion:reduce){#sistema .system-track,#sistema .system-viewport{transition:none!important}}
