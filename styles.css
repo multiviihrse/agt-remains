@@ -2034,3 +2034,8 @@ body{font-family:var(--font-texto)!important;font-size:var(--text-body)!importan
 #sistema .system-tabs button{padding:5px 7px!important}
 #sistema .system-viewport{width:0;min-width:100%;max-width:100%}
 @media(max-width:650px){#sistema .article-card.system-content{width:100%!important;grid-template-columns:minmax(0,1fr)}}
+
+/* Sistema: rolagem horizontal das abas sem barra visível. */
+#sistema .system-tabs{display:flex!important;flex-wrap:nowrap!important;overflow-x:auto!important;overflow-y:hidden!important;min-width:0!important;max-width:100%!important;scrollbar-width:none!important;-ms-overflow-style:none!important;touch-action:pan-x pan-y;-webkit-overflow-scrolling:touch}
+#sistema .system-tabs::-webkit-scrollbar{display:none!important;width:0!important;height:0!important}
+#sistema .system-tabs button{flex-shrink:0!important;white-space:nowrap!important}
