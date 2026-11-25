@@ -2113,3 +2113,17 @@ body{font-family:var(--font-texto)!important;font-size:var(--text-body)!importan
 #ambientacao .city-pagination button{pointer-events:auto;border:0;padding:0;width:7px;height:7px;border-radius:20px;background:#ae9b8988;cursor:pointer;transition:width .2s}
 #ambientacao .city-pagination button[aria-current=true]{width:18px;background:#e1b99d}
 @media(max-width:550px){#ambientacao .city-menu{left:5px;width:48%}#ambientacao .city-menu button{font-size:10px;padding:7px 4px}#ambientacao .city-title h3{font-size:16px!important}#ambientacao .city-shade{background:linear-gradient(90deg,#17110f 0%,#17110fe8 30%,transparent 80%),linear-gradient(0deg,#17110fe8,transparent 22%)}}
+
+#ambientacao .city-gallery{height:auto!important;aspect-ratio:16/9;border:1px solid #B99275!important}
+#ambientacao .city-corner{position:absolute;width:72px;height:49px;background:url("assets/fichario/arabesco-canto.svg") center/100% 100% no-repeat;pointer-events:none;z-index:5}
+#ambientacao .city-corner-tl{top:3px;left:3px}#ambientacao .city-corner-tr{top:3px;right:3px;transform:scaleX(-1)}#ambientacao .city-corner-bl{bottom:3px;left:3px;transform:scaleY(-1)}#ambientacao .city-corner-br{bottom:3px;right:3px;transform:scale(-1,-1)}
+#ambientacao .city-menu{top:22px;bottom:36px;left:18px;gap:0}
+#ambientacao .city-menu button{font-family:var(--font-titulos)!important;font-size:var(--text-h2)!important;line-height:1.15;padding:3px 6px}
+#ambientacao .city-title{top:24px;right:24px}
+#ambientacao .city-title h1{font-family:var(--font-titulos)!important;font-size:var(--text-h1)!important;line-height:1.15;margin:5px 0!important;font-weight:400;color:#fff!important}
+#ambientacao .city-title h2{font-family:var(--font-titulos)!important;font-size:8px!important;letter-spacing:2px;line-height:1.2;margin:0!important;color:#f0d7bb!important;font-weight:400}
+#ambientacao .city-controls{position:absolute;bottom:9px;left:0;right:0;display:flex;align-items:center;justify-content:center;gap:12px;pointer-events:none}
+#ambientacao .city-pagination{position:static;display:flex;gap:10px}
+#ambientacao .city-arrow{pointer-events:auto;background:transparent;border:0;color:#e1b99d;font-size:25px;line-height:1;padding:0 8px;cursor:pointer}
+#ambientacao .city-arrow:disabled{opacity:.3;cursor:default}
+@media(max-width:650px){#ambientacao .city-menu{top:12px;bottom:30px;left:8px;justify-content:flex-start}#ambientacao .city-menu button{font-size:clamp(10px,2.6vw,22px)!important;padding:3px 4px}#ambientacao .city-title{top:15px;right:15px}#ambientacao .city-title h1{font-size:clamp(16px,4vw,32px)!important}#ambientacao .city-corner{width:42px;height:29px}#ambientacao .city-controls{bottom:3px}}
