@@ -2158,3 +2158,6 @@ body{font-family:var(--font-texto)!important;font-size:var(--text-body)!importan
 /* Sistema e Combate: largura integral dentro do padding da página. */
 :is(#sistema,#combate) .article-card.system-content{width:100%!important;max-width:100%!important;min-width:0!important;box-sizing:border-box;grid-template-columns:minmax(0,1fr)!important;align-self:stretch}
 :is(#sistema,#combate) .system-viewport{width:100%!important;min-width:0!important;max-width:100%!important}
+
+/* Ambientação: título principal na escala H1 do site. */
+#ambientacao .section-head h2{font-family:var(--font-titulos)!important;font-size:var(--text-h1)!important;line-height:1.25!important}
