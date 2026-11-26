@@ -1,6 +1,6 @@
 // Substitua os valores vazios pelos links públicos dos seus Google Forms.
 window.AGT_CONFIG = {
-  centralUrl: '', // Cole aqui o endereço HTTPS da Central externa.
+  centralUrl: "https://sparkies.com.br/comunidades/goth", // Cole aqui o endereço HTTPS da Central externa.
   forms: [
     { label: 'Criar personagem', url: '' },
     { label: 'Enviar habilidade', url: '' },
